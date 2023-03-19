@@ -1,0 +1,100 @@
+/* ex1 styling */
+
+.div1 {
+
+    background-color: aquamarine;
+    font-size:24px; 
+    padding: 20px; 
+    border: 4px ridge rgb(77, 199, 77); 
+    
+}
+
+.ital {
+    font-style: italic;
+}
+
+.undr_line {
+    text-decoration: underline;
+}
+
+img {
+    height: 50px;
+    width: 100px;
+}
+
+/* flag styling */
+
+
+.flag {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+
+}
+
+.blue {
+
+    background-color: blue;
+    display: inline-block;
+    margin: -5px;
+    width: 34px;
+    height: 50px;
+
+}
+
+
+.white {
+
+    background-color: white;
+    display: inline-block;
+    margin: -5px;
+    width: 33px;
+    height: 50px;
+
+}
+
+.red {
+
+    background-color:red;
+    display: inline-block;
+    margin: -5px;
+    width: 33px;
+    height: 50px;
+
+}
+
+/* position styling */
+
+
+.advanced1 {
+    position: relative;
+    display: inline-block;
+    height: 320px;
+    width: 100vw;
+    background-color: rgb(196, 195, 195);
+
+}
+
+.orange-box {
+    display: inline-block;
+    width: 290px;
+    height: 290px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: orange;
+
+
+} 
+
+.light-blue-box {
+
+    display: inline-block;
+    width: 290px;
+    height: 290px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    background-color: rgb(123, 210, 232);
+
+}

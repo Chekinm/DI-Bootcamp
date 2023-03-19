@@ -1,0 +1,12 @@
+
+table, th, td {
+    border: 1px solid rgb(125, 22, 22);
+    background-color: rgb(35, 230, 244); 
+    font-size=40px;
+
+}
+
+th, td {
+    
+    margin-top: 20px;
+}
