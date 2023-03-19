@@ -1,0 +1,55 @@
+.header {
+    font-size: 30px;
+    font-weight:800;
+    text-align: left;
+}
+
+.section-header {
+    font-size: 20px;
+    font-weight:600;
+    text-align: left;
+    margin: 15px 0px;
+}
+
+.highlighted {
+    background-color: yellow;
+}
+
+.unordered-list-header {
+    font-weight:600;
+    text-decoration: underline;
+    text-indent: 30px;
+}
+
+.ordered-list {
+    list-style-type: upper-roman;
+}
+
+.cat-pict {
+    width: 600px;
+    border: 5px solid rgb(122, 233, 94);
+    display: block;
+    margin: 20px auto 20px auto;
+}
+
+.table {
+    width: 600px;
+    display: block;
+    margin: 20px auto 20px auto;
+}
+
+.red-header td{
+    color:red;
+    border: 1px solid black;
+    text-align: center;
+    font-weight: 600;
+}
+
+th {
+    border: 1px solid black;
+    font-weight: 600;
+}
+
+.bordered {
+    border: 1px solid black;
+}
