@@ -1,0 +1,94 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: Bangers;
+    overflow-x:hidden;
+}
+
+body {
+    background-image: url("./assets/thor1.jpg");
+    background-size: cover;
+    position: relative;
+    background-repeat:no-repeat;
+}
+
+
+.header {
+    position:fixed;
+    display: inline-block;
+    width: 100vw;
+    height: 100px;
+    top: 0px;
+    background: rgb(23,5,27);
+    background: linear-gradient(209deg, rgba(23,5,27,1) 0%, rgba(8,3,33,1) 100%);
+}
+
+.logo {
+    position: absolute;
+    filter: invert(1);
+    top: 0px;
+    left:20px;
+    height: 100px;
+}
+
+.nav {
+    color:white;
+    font-size: 20px;
+    display: inline;
+}
+
+ul {
+    color:white;
+    font-size: 25px;
+    display: inline;
+    float: right;
+}
+
+li {
+    display: inline;
+    float: left;
+    padding: 35px;
+  }
+
+.sec-header {
+    font-size: 80px;
+    color: rgb(99, 219, 179);
+    padding: 250px 0px 200px 200px; 
+}
+
+.left-cont {
+    width: 65vw;
+    float: right;
+}
+
+.text {
+    margin-bottom:20px;
+    font-size: 28px;
+}
+
+.char-description {
+    font-size: 20px;
+    color: rgb(190, 234, 234);   
+    letter-spacing: .17rem;
+    text-shadow: -2px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgb(23,5,27);
+    background: linear-gradient(209deg, rgba(23,5,27,1) 0%, rgba(8,3,33,1) 100%);
+    padding:0px 20px 10px 0px ;    
+}
+
+a {
+    color:white
+}
+
+
+
