@@ -1,0 +1,13 @@
+.rem {
+    display: block;
+    height:15rem;
+    width: 15rem;
+    background-color: aquamarine;
+}
+
+.vh {
+    display: block;
+    height:50vh;
+    width: 50vw;
+    background-color: blueviolet;
+}
