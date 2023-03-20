@@ -158,17 +158,49 @@ li {
 }
 
 
-.onhover-1, .onhover-2, .onhover-3,.onhover-11 {
+.onhover-1, .onhover-2, .onhover-3 {
 
   font-size: 50px;
 	position: absolute;
   color: rgb(1, 59, 120);
 	visibility: hidden;
-  top: 200px;
+  top: 180px;
  
 }
 
-.onhover-1, .onhover-11 {
+.onhover-11, .onhover-22, .onhover-33 {
+  display: inline-block;
+  position: absolute;
+  background-color:rgb(5, 51, 115);
+  color: #fff;
+  font-size: 0.6rem;
+  visibility: visible;
+  top:-30px;
+  left:0px;
+  height: 0.9rem;
+  border: none;
+  border-radius: 0.4rem;
+  visibility: hidden;
+}
+
+.onhover-11 {
+  left:-25px;
+  width: 110px;
+  
+}
+
+.onhover-22 {
+  left: -35px;
+  width: 120px;
+  
+}
+
+.onhover-33{
+  left: -25px;
+  width: 110px;
+}
+
+.onhover-1 {
 	left: 60px; 
 }
 
@@ -177,46 +209,14 @@ li {
 }
 
 .onhover-3 {
-	left: 290px;
-}
-
-.onhover-1 {
-  z-index: 3;
+	left: 300px;
 }
 
 .image:hover>.onhover-1, .image:hover>.onhover-2, .image:hover>.onhover-3 {
   visibility: visible;
-
 }
 
-.onhover-1:hover {
-  
-  text-shadow:
-  0 0 7px #1d0404,
-  0 0 10px #fff,
-  0 0 21px #900e0e,
-  0 0 42px rgb(0, 221, 255),
-  0 0 82px rgb(0, 221, 255),
-  0 0 92px rgb(255, 98, 0),
-  0 0 102px rgb(0, 221, 255),
-  0 0 151px rgb(0, 221, 255);
-}
-
-.onhover-2:hover {
-  
-  text-shadow:
-  0 0 7px #0c041d,
-  0 0 10px #fff,
-  0 0 21px #900e0e,
-  0 0 42px rgb(0, 221, 255),
-  0 0 82px rgb(0, 221, 255),
-  0 0 92px rgb(255, 98, 0),
-  0 0 102px rgb(0, 221, 255),
-  0 0 151px rgb(0, 221, 255);
-}
-
-
-.onhover-3:hover {
+.onhover-1:hover, .onhover-2:hover, .onhover-3:hover  {
   
   text-shadow:
   0 0 7px #1d0404,
@@ -230,6 +230,10 @@ li {
 }
 
 
+.onhover-1:hover>.onhover-11, .onhover-2:hover>.onhover-22, .onhover-3:hover>.onhover-33{
+  visibility: visible;
+  transition: 20ms;
+}
 
 .buy {
     display: inline-block;
