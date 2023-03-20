@@ -90,5 +90,66 @@ a {
     color:white
 }
 
+@media all and (min-width: 1280px) { 
+
+  
+.header {
+    
+    background: black}
+
+
+.nav, .ul {
+    color:white;
+    
+}
+
+  
+
+
+}
+
+
+
+
+@media all and (min-width: 922px) and (max-width: 1200px) { 
+  
+    .header, .footer {
+        background: rgb(153, 33, 33)}
+    .nav, .ul, a {
+        color:white;
+        
+    }
+    
+
+}
+
+@media all and (min-width: 768px) and (max-width: 922px) { 
+    .header, .footer {
+        background: lightgreen}
+    .nav, .ul, a {
+        color:black;
+    }
+    .sec-header {
+        font-size: 25px;
+    }
+    }
+
+
+@media all and (min-width: 400px) and (max-width: 768px) {
+    .header, .footer {
+        background: rgb(116, 152, 9)}
+    .nav, .ul. a {
+        color:black;
+    }
+    .sec-header {
+        font-size: 35px;
+    }
+    .left-cont {
+        width: 100vw;
+        float: left;
+        padding-left: 10px;
+    }
+
+    }
 
 
