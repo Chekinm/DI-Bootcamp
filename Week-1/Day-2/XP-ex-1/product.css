@@ -16,7 +16,7 @@ body {
     position:fixed;
     display: inline-block;
     width: 100vw;
-    height: 5rem;
+    height: 4rem;
     top: 0px;
     
     background: rgb(49,146,209);
@@ -26,9 +26,9 @@ body {
 
 .icon {
     display: inline-block;
-    width: 5rem;
+    width: 4rem;
     padding: 1rem;
-    font-size: 3rem;
+    font-size: 2rem;
     color: rgb(135, 199, 255);
     text-shadow:
       0 0 7px #fff,
@@ -56,7 +56,7 @@ ul {
 li {
     display: inline;
     float: left;
-    padding: 1.5rem;
+    padding: 1.2rem;
   }
 .signin {
     padding-right: 2rem;
@@ -65,9 +65,9 @@ li {
 .main {
     display:inline-block;
     position: absolute;
-    top: 12rem;
-    padding-left: 3rem;
-    font-size: 3rem;
+    top: 10rem;
+    padding-left: 2.5rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: rgb(14, 14, 228);
     text-shadow:
@@ -90,9 +90,9 @@ li {
 .product-card {
   background-color: rgba(71, 71, 73, 30%);
   display: inline-block;
-  width: 620px;
-  height: 650px;
-  font-size: 2rem;
+  width: 420px;
+  height: 550px;
+  font-size: 1.5rem;
   border: 0px;
   border-radius: 10px;
   padding: 10px;
@@ -100,14 +100,10 @@ li {
 }
 
 
-
-
-
-
 .discont {
   display: inline-block;
   position: relative;
-  top: -390px;
+  top: 20px;
   left: 10px;
   height: 60px;
   width: 60px;
@@ -122,7 +118,7 @@ li {
 .name {
   font-weight:700;
   position: relative;
-  top: -50px;
+  top: 250px;
   padding: 10px;
   text-shadow:
   0 0 7px #fff,
@@ -139,7 +135,7 @@ li {
 .full-price {
     display: inline-block;
     position: relative;
-    top: -30px;
+    top: 290px;
     width: 200px;
     float: left;
     padding-left: 20px;
@@ -148,7 +144,7 @@ li {
 .disc-price {
     display: inline-block;
     position: relative;
-    top: -30px;
+    top: 290px;
     width: 200px;
     text-align: end;
     color: rgb(255, 72, 0);
@@ -156,14 +152,97 @@ li {
     float: right;
 
 }
+.image{
+  display: block;
+  position: absolute;
+}
+
+
+.onhover-1, .onhover-2, .onhover-3,.onhover-11 {
+
+  font-size: 50px;
+	position: absolute;
+  color: rgb(1, 59, 120);
+	visibility: hidden;
+  top: 200px;
+ 
+}
+
+.onhover-1, .onhover-11 {
+	left: 60px; 
+}
+
+.onhover-2 {
+	left: 180px;
+}
+
+.onhover-3 {
+	left: 290px;
+}
+
+.onhover-1 {
+  z-index: 3;
+}
+
+.image:hover>.onhover-1, .image:hover>.onhover-2, .image:hover>.onhover-3 {
+  visibility: visible;
+
+}
+
+.onhover-1:hover {
+  
+  text-shadow:
+  0 0 7px #1d0404,
+  0 0 10px #fff,
+  0 0 21px #900e0e,
+  0 0 42px rgb(0, 221, 255),
+  0 0 82px rgb(0, 221, 255),
+  0 0 92px rgb(255, 98, 0),
+  0 0 102px rgb(0, 221, 255),
+  0 0 151px rgb(0, 221, 255);
+}
+
+.onhover-2:hover {
+  
+  text-shadow:
+  0 0 7px #0c041d,
+  0 0 10px #fff,
+  0 0 21px #900e0e,
+  0 0 42px rgb(0, 221, 255),
+  0 0 82px rgb(0, 221, 255),
+  0 0 92px rgb(255, 98, 0),
+  0 0 102px rgb(0, 221, 255),
+  0 0 151px rgb(0, 221, 255);
+}
+
+
+.onhover-3:hover {
+  
+  text-shadow:
+  0 0 7px #1d0404,
+  0 0 10px #fff,
+  0 0 21px #900e0e,
+  0 0 42px rgb(0, 221, 255),
+  0 0 82px rgb(0, 221, 255),
+  0 0 92px rgb(255, 98, 0),
+  0 0 102px rgb(0, 221, 255),
+  0 0 151px rgb(0, 221, 255);
+}
+
+
+
 .buy {
+    display: inline-block;
+    position: relative;
+    top:330px;
     margin-top: 20px;
-    width: 600px;
-    height: 60px;
-    font-size: 2rem;
+    width: 400px;
+    height: 50px;
+    font-size: 1.4rem;
     border: 0px;
     border-radius: 10px;
-    color: rgb(29, 29, 123);
+    font-weight: 700;
+    color: rgb(56, 56, 227);
 
 }
 
