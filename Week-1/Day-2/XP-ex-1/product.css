@@ -58,12 +58,15 @@ li {
     float: left;
     padding: 1.5rem;
   }
+.signin {
+    padding-right: 2rem;
+}
 
 .main {
     display:inline-block;
     position: absolute;
     top: 12rem;
-    padding: 3rem;
+    padding-left: 3rem;
     font-size: 3rem;
     font-weight: 700;
     color: rgb(14, 14, 228);
@@ -78,17 +81,28 @@ li {
     0 0 151px #fff;
 }
 
+.top-phrase {
+    padding: 20px;
+    text-align: center;
+}
+
+
 .product-card {
   background-color: rgba(71, 71, 73, 30%);
   display: inline-block;
   width: 620px;
-  height: 700px;
+  height: 650px;
   font-size: 2rem;
   border: 0px;
   border-radius: 10px;
   padding: 10px;
   margin-top: 20px;
 }
+
+
+
+
+
 
 .discont {
   display: inline-block;
@@ -107,6 +121,8 @@ li {
 
 .name {
   font-weight:700;
+  position: relative;
+  top: -50px;
   padding: 10px;
   text-shadow:
   0 0 7px #fff,
@@ -121,8 +137,36 @@ li {
 }
 
 .full-price {
+    display: inline-block;
+    position: relative;
+    top: -30px;
+    width: 200px;
+    float: left;
+    padding-left: 20px;
 
 }
+.disc-price {
+    display: inline-block;
+    position: relative;
+    top: -30px;
+    width: 200px;
+    text-align: end;
+    color: rgb(255, 72, 0);
+    padding-right: 20px;
+    float: right;
+
+}
+.buy {
+    margin-top: 20px;
+    width: 600px;
+    height: 60px;
+    font-size: 2rem;
+    border: 0px;
+    border-radius: 10px;
+    color: rgb(29, 29, 123);
+
+}
+
 
 
 
@@ -178,6 +222,11 @@ div > a  {
       0 0 102px rgb(0, 221, 255),
       0 0 151px rgb(0, 221, 255);
 }
+
+.linetrough {
+    text-decoration: line-through;
+}
+
 
 @media (max-width: 1050px) {
     html {
