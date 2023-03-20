@@ -1,0 +1,146 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Major Mono Display', monospace;
+}
+
+body {
+    background-image: url("./assets/sky.jpg");
+}
+
+.header {
+    position:fixed;
+    display: inline-block;
+    width: 100vw;
+    height: 5rem;
+    top: 0px;
+    
+    background: rgb(49,146,209);
+    background: radial-gradient(circle, rgba(49,146,209,1) 0%, rgba(0,50,228,1) 100%);}
+
+.icon {
+    display: inline-block;
+    width: 5rem;
+    padding: 1rem;
+    font-size: 3rem;
+    color: rgb(135, 199, 255);
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #fff,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
+    float: left;  
+}
+
+.nav {
+    display: inline;
+}
+
+ul {
+    color:rgb(20, 5, 51);
+    font-size: 1.5rem;
+    display: inline;
+    float: right;
+}
+
+li {
+    display: inline;
+    float: left;
+    padding: 1.5rem;
+  }
+
+.main {
+    display:inline-block;
+    position: absolute;
+    top: 12rem;
+    padding: 3rem;
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgb(14, 14, 228);
+    text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #fff,
+    0 0 82px#fff,
+    0 0 92px#fff,
+    0 0 102px #fff,
+    0 0 151px #fff;
+}
+
+
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    
+    background: rgb(49,146,209);
+    background: radial-gradient(circle, rgba(49,146,209,1) 0%, rgba(0,50,228,1) 100%);    padding:0px 20px 10px 0px ;    
+}
+
+a {
+    
+    color:rgb(252, 253, 255);
+    font-weight: 500;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px rgb(0, 221, 255),
+      0 0 82px rgb(0, 221, 255),
+      0 0 92px rgb(0, 221, 255),
+      0 0 102px rgb(0, 221, 255),
+      0 0 151px rgb(0, 221, 255);
+}
+
+div > a  {
+    display: inline-block;
+    padding: 5rem 15rem;
+    text-align: left;
+    color:rgb(13, 146, 247);
+    font-weight: 1000;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px  #fff,
+      0 0 82px  #fff,
+      0 0 92px rgb(0, 221, 255),
+      0 0 102px rgb(0, 221, 255),
+      0 0 151px rgb(0, 221, 255);
+}
+.shadow {
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px  #fff,
+      0 0 82px  #fff,
+      0 0 92px rgb(0, 221, 255),
+      0 0 102px rgb(0, 221, 255),
+      0 0 151px rgb(0, 221, 255);
+}
+
+@media (max-width: 1050px) {
+    html {
+      font-size: 13px;
+    }
+  }
+
+
+
+@media (max-width: 800px) {
+    html {
+      font-size: 11px;
+    }
+  }
+
