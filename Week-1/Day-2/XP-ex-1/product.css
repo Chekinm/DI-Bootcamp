@@ -66,7 +66,7 @@ li {
     display:inline-block;
     position: absolute;
     top: 10rem;
-    padding-left: 2.5rem;
+    /* padding-left: 2.5rem; */
     font-size: 2.5rem;
     font-weight: 700;
     color: rgb(14, 14, 228);
@@ -79,6 +79,7 @@ li {
     0 0 92px#fff,
     0 0 102px #fff,
     0 0 151px #fff;
+    text-align: center;
 }
 
 .top-phrase {
@@ -88,6 +89,7 @@ li {
 
 
 .product-card {
+  text-align: left;
   background-color: rgba(71, 71, 73, 30%);
   display: inline-block;
   width: 420px;
@@ -104,7 +106,7 @@ li {
   display: inline-block;
   position: relative;
   top: 20px;
-  left: 10px;
+  left: 20px;
   height: 60px;
   width: 60px;
   border: 0px;
@@ -138,7 +140,7 @@ li {
     top: 290px;
     width: 200px;
     float: left;
-    padding-left: 20px;
+    padding-left: 15px;
 
 }
 .disc-price {
@@ -249,9 +251,6 @@ li {
     color: rgb(56, 56, 227);
 
 }
-
-
-
 
 .footer {
     position: fixed;
