@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.grid-contaiter {
+    border: 1px solid black;
+    border-top: none;
+    height: 750px;
+    width: 500px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 65fr 55fr 55fr;
+    grid-template-rows: 1.5fr 6fr 2fr 3fr 2.5fr 1.5fr;
+    gap: 2px;
+}
+
+.header {
+    grid-area: 1/1/1/4;
+    background-color: rgb(221, 193, 157);
+}
+
+.hero {
+    grid-area: 2/1/3/1;
+    background-color: rgb(31, 105, 107);
+    
+}
+
+.main {
+    grid-area: 2/2/4/4;
+    background-color: rgb(30, 239, 242);
+}
+
+.side {
+    grid-area: 3/1/5/1;
+    background-color: rgb(229, 101, 212);
+}
+
+
+.extra {
+    grid-area: 4/2/4/4;
+    background-color: rgb(163, 185, 41);
+}
+
+.img {
+    grid-area: 5/1/5/3;
+    background-color: rgb(110, 213, 136);
+}
+
+.post {
+    grid-area: 5/3/5/4;
+    background-color: rgb(27, 35, 110);
+}
+
+
+.footer {
+    grid-area: 6/1/6/4;
+    background-color: rgb(178, 8, 216);
+}
+/* 
+.p2 {
+    grid-area: 2/1;
+} */
+
+/* .p3 {
+    grid-area: 3/1;
+} */
+
+/* .p8 {
+    grid-area: 4/1/4/3;
+} */
+
+.child {
+    border: 1px solid black;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.yellow {
+    background-color: yellow;
+
+}
