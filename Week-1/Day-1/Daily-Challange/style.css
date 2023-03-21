@@ -99,17 +99,9 @@ a {
 
 
 .nav, .ul {
-    color:white;
-    
+    color:white;   
 }
-
-  
-
-
 }
-
-
-
 
 @media all and (min-width: 922px) and (max-width: 1200px) { 
   
@@ -143,13 +135,43 @@ a {
     }
     .sec-header {
         font-size: 35px;
+        text-align: center;
     }
     .left-cont {
         width: 100vw;
         float: left;
         padding-left: 10px;
     }
-
+    .logo {
+        display: none;
     }
+
+}
+
+@media all and (max-width: 400px) {
+    .header, .footer {
+        background: rgb(116, 152, 9)}
+    .nav, .ul. a {
+        color:black;
+    }
+    .sec-header {
+        font-size: 35px;
+    }
+    .left-cont {
+        width: 100vw;
+        float: left;
+        padding-left: 10px;
+    }
+    .logo {
+        display: none;
+    }
+
+    ul, li {
+        display: inline-block;
+    }
+
+}
+
+
 
 

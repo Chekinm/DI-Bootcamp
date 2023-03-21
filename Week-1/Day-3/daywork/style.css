@@ -1,0 +1,37 @@
+* {
+    padding: px;
+    margin: 5px;
+    box-sizing: border-box;
+}
+
+.contaiter {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.child {
+    display: block;
+    height: 100px;
+    width: 100px;
+    margin: 5px;
+}
+
+.p1 {
+    background-color: aqua;
+}
+
+.p2 {
+    background-color: red;
+
+}
+
+.p3 {
+    background-color: greenyellow;
+
+}
+
+.p4 {
+    background-color: violet;
+
+}
