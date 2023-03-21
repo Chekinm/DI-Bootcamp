@@ -1,51 +1,79 @@
-* { margin: 0;
+ * { 
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* font-family: 'IM Fell DW Pica SC', serif; */
+    font-family: 'Macondo', cursive; 
+    /* font-family: 'UnifrakturMaguntia', cursive;  */
+    font-size: 25px;
 }
 
 .name {
-    grid-area: name;
-    
+    grid-area: nam;
+    background-color: aquamarine;
 }
+
 .photo {
-    grid-area: photo;
-    width: 100%;
+    grid-area: pht;
+    background-color: rgb(89, 243, 192);
 }
 
-img {
-    width: 100%;}
+.elfname {
+    grid-area: elf;
+    background-color: rgb(52, 180, 49);
+    }
+    
 
-.objectve {
+.objective {
     grid-area: obj;
+    background-color: rgb(102, 62, 42);
 }
+
+.lang {
+    padding: 40px;
+    text-align: center;
+    grid-area: lng;
+    background-color: rgb(115, 28, 139);
+    list-style: sq;
+}
+
 .edu {
     grid-area: edu;
+    background-color: rgb(119, 167, 193);
 }
+
 .exp {
     grid-area: exp;
+    background-color: rgb(185, 191, 77);
 }
 .skills {
-    grid-area: skills;
+    grid-area: skl;
+    background-color: rgb(249, 123, 56);
+}
+
+.contacts {
+    grid-area: cnt;
+    background-color: rgb(141, 29, 37);
 }
 .sm {
     grid-area: sm;
+    background-color: rgb(210, 255, 127);
 }
-
 
 .resume {
     display: grid;
-    width: 500px;
-    height: 700px;
-
+    gap: 0px;
+    grid-template-columns: 220px 240px 240px;
+   
+justify-content: space-around;
     grid-template-areas:
-        'photo      skills skills'
-        'photo      exp    exp'
-        'name       exp    exp'
-        'obj        edu    edu'
-        'contacts   sm     sm';
-    }
+    
+    'pht nam nam'
+    'pht obj obj'
+    ' elf   edu exp'
+    'lng edu exp'
+    'lng skl skl'
+    'cnt sm  sm';
+        }
 
-.bl {
-    border: 1px solid green;
-}
-
+    
