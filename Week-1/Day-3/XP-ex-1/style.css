@@ -1,0 +1,51 @@
+* { margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.name {
+    grid-area: name;
+    
+}
+.photo {
+    grid-area: photo;
+    width: 100%;
+}
+
+img {
+    width: 100%;}
+
+.objectve {
+    grid-area: obj;
+}
+.edu {
+    grid-area: edu;
+}
+.exp {
+    grid-area: exp;
+}
+.skills {
+    grid-area: skills;
+}
+.sm {
+    grid-area: sm;
+}
+
+
+.resume {
+    display: grid;
+    width: 500px;
+    height: 700px;
+
+    grid-template-areas:
+        'photo      skills skills'
+        'photo      exp    exp'
+        'name       exp    exp'
+        'obj        edu    edu'
+        'contacts   sm     sm';
+    }
+
+.bl {
+    border: 1px solid green;
+}
+
