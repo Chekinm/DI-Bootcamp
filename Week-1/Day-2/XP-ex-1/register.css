@@ -130,6 +130,11 @@ li {
     color: rgb(56, 56, 227);
 }
 
+.buy > a {
+    font-weight: 700;
+    color: rgb(56, 56, 227);
+}
+
 .register, .register1{
 
     display: inline-block;
