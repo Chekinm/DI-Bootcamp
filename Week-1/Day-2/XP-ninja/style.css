@@ -3,11 +3,15 @@
     margin: 0px;
     padding: 0px;
     font-family: 'M PLUS Rounded 1c', sans-serif;
+    
+}
+
+a:active {
+    color: rgba(0,0,0,0);
 }
 
 body {
     display: inline-block;
-    vertical-align:;
 }
 
 .left-cont, .right-cont {
@@ -162,4 +166,8 @@ body {
 
 .ic {
     margin-left: 30px;
+}
+
+a:active, a{
+    color:rgb(84, 23, 116);
 }
