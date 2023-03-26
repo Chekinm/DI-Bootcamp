@@ -5,7 +5,7 @@
 # Hello world
 # Hello world
 
-print(("\033[91m {}\033[00m".format("Hello ") + "\033[93m {}\033[00m" .format('world\n')) * 4 )
+print(("\033[91m {}\033[00m".format("Hello") + "\033[93m {}\033[00m" .format('world\n')) * 4 )
 
 
 # Write code that calculates the result of: (99^3)*8 
