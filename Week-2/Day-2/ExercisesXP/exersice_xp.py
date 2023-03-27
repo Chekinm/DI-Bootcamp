@@ -136,10 +136,10 @@ my_name = 'Mike'
 while True:
     username = input('Please enter your name: ')
     if username != my_name:
-        print (f'Hey {username}. We don\'t like {username}s here. If you have friends')
-        print (f'who\'s name is {my_name} call him. We allowed him')
+        print (f'Hey {username}. We don\'t like {username}s here. If you have friend')
+        print (f'who\'s name is {my_name}, call him. We allowed him')
     else:
-        print (f'Hey {username}. Nice to have you in our Mikes community!MIke')
+        print (f'Hey {username}. Nice to have you in our Mikes community!')
         break
 
 ###########################################################################################
@@ -168,9 +168,6 @@ print('Yemmi. You like it!' if guess in fruits_list else 'No. That is not you fa
 ################   ex8 - ##################################################################
 ###########################################################################################
 
-
-
-
 # Write a loop that asks a user to enter a series of pizza toppings, when the user inputs ‘quit’ 
 # stop asking for toppings.
 # As they enter each topping, print a message saying you’ll add that topping to their pizza.
@@ -197,3 +194,45 @@ for component in order_list:
     total += component_price
 
 print(f'\n \t The total is \t\t{total}')
+
+###########################################################################################
+################   ex10  and ex 11 - ######################################################
+###########################################################################################
+
+# Use the above list called sandwich_orders.
+# Make an empty list called finished_sandwiches.
+# As each sandwich is made, move it to the list of finished 
+# sandwiches.
+# After all the sandwiches have been made, print a message 
+# listing each sandwich that was made , such as I made your 
+# tuna sandwich.
+
+from collections import deque
+
+# as we need FIFO data stracture, 
+#it's better to use deque structure
+# as it have O(1) time complexity for popleft,
+# while pop(0) in list takes O(n)
+
+sandwich_orders = ['Tuna sandwich', 
+                   'Avocado sandwich',
+                    'Egg sandwich',
+                    'Sabih sandwich',
+                    'Pastrami sandwich',
+                    'Pastrami sandwich',
+                    'Pastrami sandwich',
+                    ]
+finished_sandwich = []
+sandwich_orders = deque(sandwich_orders)
+
+if sandwich_orders.count('Pastrami sandwich') > 2:
+    print ('Runing low pastrami.')
+    while 'Pastrami sandwich' in sandwich_orders:
+        sandwich_orders.remove('Pastrami sandwich')
+
+while sandwich_orders:
+    curr_sand = sandwich_orders.popleft()
+    finished_sandwich.append(curr_sand)
+    print(f'I made your {curr_sand}.')
+
+print(finished_sandwich)
