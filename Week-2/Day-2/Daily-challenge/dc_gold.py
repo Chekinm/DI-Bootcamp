@@ -1,13 +1,7 @@
-        
-#       |:H:a:p:p:y:|
-#     __|___________|__
-#    |^^^^^^^^^^^^^^^^^|
-#    |:B:i:r:t:h:d:a:y:|
-#    |                 |
-#    ~~~~~~~~~~~~~~~~~~~
-# The number of candles on the cake should be the last number of the users age, if they are 53, then add 3 candles.
+        # The number of candles on the cake should be the last number of the users age, if they are 53, then add 3 candles.
 # Bonus : If they were born on a leap year, display two cakes !
 happy = [0,0,0,0,0,0,0]
+
 happy[0] =     '      |             |      '
 happy[1] =     '      | :H:a:p:p:y: |      '
 happy[2] =     '  ____|_____________|____  '
@@ -24,12 +18,13 @@ year = int(inp[-4:])
 l_dig = year % 10
 if l_dig == 0:
     l_dig = 10  # 0 candle is too silly
+    # by the way %11 will also do the trick
 
-# just ususal condtion for leap year
+# just usual condition for leap years
 is_leap = (year % 400 == 0) or (year % 4 == 0 and year % 100 != 0)
 
 # create string with candles
-# to be simmetric add inderscore in the middle in case of 
+# to be simmetric, I add underscore in the middle in case of 
 # even number of candels
 
 candle = ('      '+'_'*((15-l_dig)//2) + 'i' * (l_dig//2) +
@@ -37,7 +32,7 @@ candle = ('      '+'_'*((15-l_dig)//2) + 'i' * (l_dig//2) +
        'i' * (l_dig//2) + '_'*((15-l_dig)//2)+'      ')
 
 
-# now we have evrythong to print
+# now we have evrything to print. let's go
 print('')
 print('')
 print('')
