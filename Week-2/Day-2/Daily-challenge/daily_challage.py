@@ -14,14 +14,13 @@ print(result_list)
 # Write a program that asks a string to the user, and display 
 # a new string with any duplicate consecutive letters removed.
 
-
 def remove_duplicate(word):
-    l = r = len(word)-1
+    l = r = len(word) - 1
     while l >= 0 and r > 0:
         l -= 1
         if word[l] == word[r]:
-            word = word.replace(word[l]*2,word[l],1)
-        r=l
+            word = word.replace(word[l] * 2, word[l], 1)
+        r = l
     return word
 
 assert remove_duplicate('ppoeemm') =='poem'
