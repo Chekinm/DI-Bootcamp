@@ -24,6 +24,7 @@ for char in phrase:
     curr_char +=char
     print(curr_char)
 
+
 print('---------------------------------------------------------')
 print('And, if  for some reason you like it shuffled, here oyu are:')
 random.shuffle(list_of_char)
