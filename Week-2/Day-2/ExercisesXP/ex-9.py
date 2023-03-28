@@ -23,16 +23,23 @@
 
 class watcher():
     def __init__(self, name, age, restricted="False", price=15):
+        kid_age = 3
+        kid_price = 0
+        teen_age = 12
+        teen_price = 10
+        adult_age = 21
+        adult_price = 15
+        
         self.name = name
         self.age = age
-        self.restricted = (True if age < 21 else False) 
+        self.restricted = (True if age < adult_age else False) 
         # I change this from original to be logical -> just less than 21
-        if self.age < 3:
-            self.price = 0
-        elif self.age < 12:
-            self.price = 10
+        if self.age < kid_age:
+            self.price = kid_price
+        elif self.age < teen_age:
+            self.price = teen_price
         else:
-            self.price = 15
+            self.price = adult_price
 
 def print_group_ticket(list_of_watchers, movie_is_adultonly=False):
     total = 0
