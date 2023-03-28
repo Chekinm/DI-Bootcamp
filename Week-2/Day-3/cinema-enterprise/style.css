@@ -1,0 +1,7 @@
+.visible {
+    display: inline;
+}
+
+.unvisible {
+    display: none;
+}

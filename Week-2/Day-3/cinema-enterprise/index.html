@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- <py-env> - js</py-env> -->
+  <!-- <py-config>
+    [[fetch]]
+    files = ["cinema.py"]
+  </py-config> -->
+
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mike cinema</title>
+  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  <link rel="stylesheet" href="style.css">
+
+  </head>
+    <body>
+      <div class="header">
+           <h1>Welcome to Mikhail's CinematograF</h1>
+      </div>
+      
+      <div> you can by a ticket to my cinema here</div>
+
+      <form action="">
+        <p>ener number of watchers</p>
+        <input type="text" value="0"></unput>
+        <button action="set_num()">Enter</button>
+      </form>
+
+      <div container class="visible">
+        <p>Enter name and age of each watchers</p>
+        <div id="enterarea" class="person_container">
+            <input id="enterarea" type="text" value="film name"></unput>
+           
+        </div>
+        <div >
+            <p>Enter film name</p>
+            <input type="text" value="film name"></unput>
+            <p>is it for adults only? <input type="checkbox" value="False"></unput></p>
+            <br>
+        </div>
+
+        <button action="print()">Enter</button>
+      </div>
+
+
+     
+      <py-script src="./main.py">
+        
+          <!-- execute  py_code.py  -->
+
+      </py-script>
+    </body>
+    
+    
+</html>
