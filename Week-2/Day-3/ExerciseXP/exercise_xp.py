@@ -91,17 +91,20 @@ print('The customers of zara are: {}'.format(','.join(brand_dict['type_of_clothe
 
 # 5. Add a key called country_creation with a value of Spain.
 brand_dict['country_creation']='Spain'
+
 # 6. Check if the key international_competitors is in the dictionary. If it is, add the store Desigual.
+
 if brand_dict.get('international_competitors') != None:
     brand_dict.get('international_competitors').append('Desigual')
 print(brand_dict['international_competitors'])
 
 # 7. Delete the information about the date of creation.
-
 brand_dict.pop('creation_date')
 print(brand_dict)
+
 # 8. Print the last international competitor.
-print(brand_dict['international_competitors'][-1])
+
+print(brand_dict['international_competitor1s'][-1])
 
 # 9. Print the major clothes colors in the US.
 print(brand_dict['major_color']['US'])
