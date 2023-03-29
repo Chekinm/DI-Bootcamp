@@ -30,11 +30,11 @@ print(my_dict)
 
 
 def usd_to_num(usd):
-    num = ''
+    num = []
     for char in usd:
         if char.isnumeric():
-            num += char
-    return int(num)
+            num.append(char)
+    return int(''.join(num))
 
 def what_can_i_buy(items_purchase, wallet):
     
