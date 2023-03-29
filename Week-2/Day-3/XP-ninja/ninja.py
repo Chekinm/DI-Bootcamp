@@ -7,7 +7,8 @@ user_str = "Volkswagen, Toyota, Ford Motor, Honda, Chevrolet"
 
 # Convert it into a list using Python (don’t do it by hand!).
 
-user_lst = user_str.split()
+user_lst = [word.strip(',') for word in user_str.split()]
+print(user_lst)
 
 # Print out a message saying how many manufacturers/companies are in the list.
 print(f'we have {len(user_lst)} car-brand in the string')
