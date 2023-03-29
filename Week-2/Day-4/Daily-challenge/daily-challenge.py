@@ -1,16 +1,3 @@
-# incoming data
-
-text ="""7i3
-Tsi
-h%x
-i #
-sM 
-$a 
-#t%
-^r!"""
-
-# construct a matrix with as list of list
-
 def neo_decript(text :str)->str:
     """decode strange NEO chippr"""
     is_between = False
@@ -28,8 +15,21 @@ def neo_decript(text :str)->str:
             elif not is_between:
                 text_as_list.append(' ')
                 is_between = True
-        
     return ''.join(text_as_list).strip()
 
-print(neo_decript(text))
+# incoming data
+
+text ="""7i3
+Tsi
+h%x
+i #
+sM 
+$a 
+#t%
+^r!"""
+
+
+print(neo_decript(text)) 
+
+
     
