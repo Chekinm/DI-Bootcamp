@@ -8,16 +8,16 @@
 # Examples
 
 
-# word = input('Enter a word: ')
+word = input('Enter a word: ')
 
-# my_dict ={}
-# for i, char in enumerate(word):
-#     if char not in my_dict:
-#         my_dict[char]=[i]
-#     else:
-#         my_dict[char].append(i)
+my_dict ={}
+for i, char in enumerate(word):
+    if char not in my_dict:
+        my_dict[char]=[i]
+    else:
+        my_dict[char].append(i)
     
-# print(my_dict)
+print(my_dict)
 
 
 
