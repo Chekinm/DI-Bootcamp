@@ -1,6 +1,8 @@
+import numpy
+
 def neo_decript(text :str)->str:
     """decode strange NEO chippr"""
-    is_between = False
+    is_between = 0
     text_as_list = []
     
     #create 2- dimention matrix with character from text
@@ -10,11 +12,13 @@ def neo_decript(text :str)->str:
     for i in range(len(matrix[0])):
         for j in range(len(matrix)):
             if matrix[j][i].isalpha():
-                text_as_list.append(matrix[j][i])
-                is_between = False
-            elif not is_between:
-                text_as_list.append(' ')
-                is_between = True
+                if is_between > 1:
+                    text_as_list.append(' ' + matrix[j][i])
+                    is_between = 0
+                else:
+                    text_as_list.append(matrix[j][i])
+            else:
+                is_between += 1
     return ''.join(text_as_list).strip()
 
 # incoming data
@@ -27,7 +31,6 @@ sM
 $a 
 #t%
 ^r!"""
-
 
 print(neo_decript(text)) 
 
