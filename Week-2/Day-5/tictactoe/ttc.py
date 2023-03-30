@@ -50,6 +50,9 @@ def player_input(player, game_map):
     while True:
         x_coor = int(input('Enter row: '))
         y_coor = int(input('Enter column: '))
+        if  not (0 < x_coor < 4 and 0 < y_coor < 4):
+            print('We play 3x3 variant of the game!')
+            continue
         if game_map[x_coor-1][y_coor-1] == ' ':
             game_map[x_coor-1][y_coor-1] = player
             os.system('cls')
@@ -70,19 +73,14 @@ def play():
         counter += 1
     else:
         os.system('cls')
+        display_board(game_map)
         print('***********************')
         print('******Game over!*******')
         check = check_win(game_map)
-        if check == 1:
-            winner = x
-        elif check == -1:
-            winner = o
-        else:
-            winner = False
-        if winner:
-            print(f'*******\"{winner}\" won!********')
-            print('***********************')
-                   
+
+        if check:
+            print(f'*******\"{x if check == 1 else o}\" won!********')
+            print('***********************')      
         else:
             print('*****Nobody wins*******')
 
