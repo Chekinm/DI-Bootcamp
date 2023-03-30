@@ -6,7 +6,6 @@ import numpy as np
 import os
 
 
-
 def display_board(game_map):
     """game_map is a 3x3 array with game state
     just print it put in fancy table""" 
@@ -88,22 +87,11 @@ def play():
             print('*****Nobody wins*******')
 
 
-
-    display_board(game_map)
-    
-
-
-
-
 #Fedya's staff
 x = "\033[91m{}\033[00m".format("x")
 o = "\033[93m{}\033[00m".format('o')
 
-# game_map=[
-#     [o,x,x],
-#     [' ',o,' '],
-#     [' ',' ',o]
-# ]  
+# just play the game
 
 play()
 
