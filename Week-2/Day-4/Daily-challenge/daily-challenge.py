@@ -1,4 +1,4 @@
-import numpy
+import numpy as np
 
 def neo_decript(text :str)->str:
     """decode strange NEO chippr"""

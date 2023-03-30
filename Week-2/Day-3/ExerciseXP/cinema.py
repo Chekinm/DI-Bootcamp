@@ -2,11 +2,11 @@
 # implemented classes:
 
 
-class watcher():
+class Watcher():
     """ hold information about person, constructor calculate
         age price group according to bondles, witch can be ajusted
         there is also restricted attributes for adults restritions"""
-    def __init__(self, name, age, restricted="False"):
+    def __init__(self, name, age, restricted=False):
         kid_age = 3
         teen_age = 12
         adult_age = 21
@@ -22,23 +22,38 @@ class watcher():
         else:
             self.price_group = 'adult'
 
-class watchers():
+class Watchers():
     """holds groups of watchers as list of class wather object 
         there is two method to fill the group
         - read from dict ({name:age})
         - read from input
     """
     def __init__(self, watchers_dict=None):
+        self.current_indx = 0
         if watchers_dict == None:
             self.watchers_list = []
         else:
             self.watchers_list = []
             for name, age in watchers_dict.items():
-                self.watchers_list.append(watcher(name,age))
+                self.watchers_list.append(Watcher(name,age))
     
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        if self.current_indx != len(self.watchers_list):
+            curr_watcher = self.watchers_list[self.current_indx]
+            self.current_indx += 1
+            return curr_watcher
+        else:
+            raise StopIteration
+    def append (self, item: Watcher):
+        self.watchers_list.append(item)
+
+
     def read_dict(self, dict_of_watchers):
         for name, age in dict_of_watchers.items():
-            self.watchers_list.append(watcher(name,age))
+            self.watchers_list.append(Watcher(name,age))
 
     def clear(self):
         self.watchers_list.clear()
@@ -52,11 +67,11 @@ class watchers():
             name_i = input()
             print(f'Enter the age of the person number {i+1}:')
             age_i = int(input())
-            self.watchers_list.append(watcher(name_i, age_i))
+            self.watchers_list.append(Watcher(name_i, age_i))
         print(self.watchers_list[0].name)
 
         
-class movie():
+class Movie():
     """
     bocie class to hold name and age restriction
     """
@@ -65,7 +80,7 @@ class movie():
         self.is_adult = is_adult
     
 
-class cinema():
+class Cinema():
     """
     cinema class holds the price list and has a method to issue 
       a ticket to a group of wathers, depends on movie and ages of the group

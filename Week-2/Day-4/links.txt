@@ -11,3 +11,6 @@ https://github.com/Chekinm/DI-Bootcamp/tree/main/Week-2/Day-4/Daily-challenge
 
 Timed Challenge
 https://github.com/Chekinm/DI-Bootcamp/tree/main/Week-2/Day-4/Timed-challange
+
+Ninja
+https://github.com/Chekinm/DI-Bootcamp/tree/main/Week-2/Day-4/XP-ninja
