@@ -13,10 +13,9 @@ def neo_decript(text :str)->str:
         for j in range(len(matrix)):
             if matrix[j][i].isalpha():
                 if is_between > 1:
-                    text_as_list.append(' ' + matrix[j][i])
+                    text_as_list.append(' ')
                     is_between = 0
-                else:
-                    text_as_list.append(matrix[j][i])
+                text_as_list.append(matrix[j][i])
             else:
                 is_between += 1
     return ''.join(text_as_list).strip()
