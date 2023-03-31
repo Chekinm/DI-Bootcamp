@@ -118,6 +118,7 @@ while game_on:
     hidden_word = [True if i != ' ' else False for i in word]
     game_counter = 6
     guessed_list = []
+    guessed_char = ''
 
     while game_counter > 0 and True in hidden_word:
         print_hidden(word, hidden_word, game_counter, guessed_list)
@@ -132,13 +133,14 @@ while game_on:
         else:
             game_counter -= 1
     else:
+        print_hidden(word, hidden_word, game_counter, guessed_list)
         if True in hidden_word:
-            print_hidden(word, hidden_word, game_counter, guessed_list)
             print('You lost!')
         else:
-            print_hidden(word, hidden_word, game_counter, guessed_list)
             print('GG!')
+        
 
     cont = input('Press "n" for a new game or FF if you surrender: ')
+
     game_on = True if cont == 'n' else False
     
