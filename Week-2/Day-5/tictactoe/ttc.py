@@ -67,22 +67,30 @@ def game_clear(game_map):
 
 def play():
     game_map = [[' ' for i in range(3)] for j in range(3)]
-    counter = 0
-    while counter < 9 and check_win(game_map) == 0:
-        player_input((x if counter%2 else o), game_map)
-        counter += 1
-    else:
+    game_on = True
+    while game_on:
+        game_clear(game_map)
         os.system('cls')
         display_board(game_map)
-        print('***********************')
-        print('******Game over!*******')
-        check = check_win(game_map)
-
-        if check:
-            print(f'*******\"{x if check == 1 else o}\" won!********')
-            print('***********************')      
+        counter = 0
+        while counter < 9 and check_win(game_map) == 0:
+            player_input((x if counter%2 else o), game_map)
+            counter += 1
         else:
-            print('*****Nobody wins*******')
+            os.system('cls')
+            display_board(game_map)
+            print('***********************')
+            print('****  Game over!  *****')
+                
+            check = check_win(game_map)
+
+            if check:
+                print(f'****   \"{x if check == 1 else o}\" won!   *****')
+                print('***********************')      
+            else:
+                print('***  Nobody wins!   ***')
+        cont = input('Press "n" for a new game or any other char to quit: ')
+        game_on = True if cont == 'n' else False
 
 
 #Fedya's staff
