@@ -1,0 +1,21 @@
+tictactoe
+
+https://github.com/Chekinm/DI-Bootcamp/tree/main/Week-2/Day-5/tictactoe
+
+hangman
+
+
+https://github.com/Chekinm/DI-Bootcamp/tree/main/Week-2/Day-5/Hangman
+
+daily challenge
+
+https://github.com/Chekinm/DI-Bootcamp/tree/main/Week-2/Day-5/daily-challange
+
+
+20 challenges
+
+https://github.com/Chekinm/DI-Bootcamp/tree/main/Week-2/Day-5/Challanges
+
+Challange 2 from chalanages
+
+https://github.com/Chekinm/DI-Bootcamp/tree/main/Week-2/Day-5/Challanges

@@ -326,7 +326,7 @@ def dimmed_pass(str):
 
 assert dimmed_pass('password') == '********'
 
-
+my_split()
 
 
 # One Last Thing: Good luck!
