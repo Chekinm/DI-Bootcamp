@@ -29,7 +29,6 @@ class Watchers():
         - read from input
     """
     def __init__(self, watchers_dict=None):
-        self.current_indx = 0
         if watchers_dict == None:
             self.watchers_list = []
         else:
@@ -38,6 +37,7 @@ class Watchers():
                 self.watchers_list.append(Watcher(name,age))
     
     def __iter__(self):
+        self.current_indx = 0
         return self
     
     def __next__(self):
@@ -47,6 +47,7 @@ class Watchers():
             return curr_watcher
         else:
             raise StopIteration
+        
     def append (self, item: Watcher):
         self.watchers_list.append(item)
 

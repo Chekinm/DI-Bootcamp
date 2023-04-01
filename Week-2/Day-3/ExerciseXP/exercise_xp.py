@@ -41,7 +41,7 @@ assert res_dict == {'Ten': 10, 'Twenty': 20, 'Thirty': 30}
 # abusing DRI principle. Lets use class and functions writen yesterday.
 # i organize it a separate module cinema.py 
 
-from Cinema import Watchers, Movie, Cinema
+from cinema import Watchers, Movie, Cinema
 
 family1 = {"rick": 43, 'beth': 13, 'morty': 5, 'summer': 28}
 
@@ -104,7 +104,7 @@ print(brand_dict)
 
 # 8. Print the last international competitor.
 
-print(brand_dict['international_competitor1s'][-1])
+print(brand_dict['international_competitors'][-1])
 
 # 9. Print the major clothes colors in the US.
 print(brand_dict['major_color']['US'])
