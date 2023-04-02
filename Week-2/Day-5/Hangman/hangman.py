@@ -100,12 +100,9 @@ from os import system
 def print_hidden(wrd: list, hide: list, att_left: int, guessed_list: list) -> None:
     to_print = ''.join(['*' if hide[i] else wrd[i] for i in range(len(wrd))])
     system('cls')
-    print(a[game_counter])
-    print('')
-    print(to_print)
-    print('')
-    print('Guessed letters!:' + ','.join(guessed_list))
-    print('')
+    print(a[game_counter], end='\n\n')
+    print(to_print, end='\n\n')
+    print('Guessed letters!:' + ','.join(guessed_list), end='\n\n')
     print(f'{att_left} {attemps if game_counter > 1 else attemp} left!')
     
 

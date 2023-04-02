@@ -134,7 +134,7 @@ class Zoo():
 
     def sell_animal (self, sold_animal):
         try:
-            self.animals.pop(self.animals.index(sold_animal))
+            self.animals.remove(sold_animal)
         except:
             print(f'we do not have {sold_animal} in our zoo.')
 # Create a method called sort_animals that sorts the animals 
@@ -163,6 +163,7 @@ class Zoo():
 # }
 # Create a method called get_groups that prints the animal/animals inside each group.
     def get_groups(self):
+        self.sort_animals()
         for key in self.dict_animals:
             print(self.dict_animals[key])
 # Create an object called ramat_gan_safari and call all the methods.

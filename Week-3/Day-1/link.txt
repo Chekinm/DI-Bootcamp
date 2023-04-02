@@ -1,0 +1,15 @@
+daily
+
+https://github.com/Chekinm/DI-Bootcamp/tree/main/Week-3/Day-1/daily-chalange
+
+xp
+
+https://github.com/Chekinm/DI-Bootcamp/tree/main/Week-3/Day-1/XP-exercise
+
+xp-gold
+
+https://github.com/Chekinm/DI-Bootcamp/tree/main/Week-3/Day-1/XP-gold
+
+xp-ninja
+
+https://github.com/Chekinm/DI-Bootcamp/tree/main/Week-3/Day-1/XP-ninja
