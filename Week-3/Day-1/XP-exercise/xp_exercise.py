@@ -146,11 +146,10 @@ class Zoo():
     def sort_animals(self):
         dict_animals1 = {}
         for animal in self.animals:
-            first_letter = ord(animal[0].lower()) - 96
-            if first_letter not in dict_animals1:
-                dict_animals1[first_letter] = [animal]
+            if animal[0] not in dict_animals1:
+                dict_animals1[animal[0]] = [animal]
             else:
-                dict_animals1[first_letter].append(animal)
+                dict_animals1[animal[0]].append(animal)
         i = 1
         self.dict_animals = {}
         for key in sorted (dict_animals1.keys()):
@@ -176,10 +175,10 @@ for anim in list_animal:
     ramat_gan_safari.add_animal(anim)
 
 ramat_gan_safari.get_animals()
-
-ramat_gan_safari.sell_animal('mouse')
+# try do sell anumal which doesn't exist
+ramat_gan_safari.sell_animal('Mouse')
+# sell existing animal
 ramat_gan_safari.sell_animal('Lyon')
-
 ramat_gan_safari.sort_animals()
 ramat_gan_safari.get_groups()
 
