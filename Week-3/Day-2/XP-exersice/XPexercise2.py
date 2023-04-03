@@ -20,13 +20,15 @@ class PetDog(Dog):
     # train: prints the output of bark and switches the 
     # trained boolean to True
     def train(self):
-        self.bark()
+        print(self.bark())
         self.is_trained = True
         
-    def play(*args):
-        dog_names = ', '.join(dg.name for dg in args)
-        return(f'{dog_names} all play toghether')
-    
+    def play(self, *args):
+        if args:
+            dog_names = ', '.join(dg.name for dg in args)
+            return(f'{dog_names} and {self.name} all play toghether')
+        else:
+            raise ValueError('Nobody to play with:(')
     def do_a_trick(self):
         if self.is_trained:
             print(self.name + choice(DOG_TRICKS))
@@ -42,6 +44,7 @@ dog3 = Dog('Kleo', 7, 6)   #36/70
 
 
 print(vasya_the_dog.play(dog1,dog2))
+
 vasya_the_dog.train()
 
 vasya_the_dog.do_a_trick()
