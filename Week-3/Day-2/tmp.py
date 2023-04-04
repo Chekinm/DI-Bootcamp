@@ -40,9 +40,34 @@
 # finally:
 #     print('WE are here')
 
-def a (**kwargs):
-    print(kwargs)
+# def a (**kwargs):
+#     print(kwargs)
 
-a = a(a=2, b=3)    
+# a = a(a=2, b=3)  
+
+
+# def func():
+#     """this is func doc"""
+#     pass
+# print(func.__doc__)
+# print(type(func))
+
+# class my_func():
+
+#     def __init__(self, name):
+#         self.name = name
+    
+#     @property
+#     def __doc__(self):
+#         return ('this is my code running')
+    
+    
+# f = my_func('fedya')
+# print(f.__doc__)
+
+a = 5
+
+if isinstance(a,int):
+    print(a)
 
 
