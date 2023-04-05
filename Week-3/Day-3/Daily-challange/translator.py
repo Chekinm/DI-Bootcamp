@@ -1,4 +1,8 @@
 from googletrans import Translator
+# you probably need to install googletrans
+# and it writes on stack overflow that better to 
+# install version 4.0.0, as ny defailt you will get 3.0.0.
+# use  pip install googletrans==4.0.0rc1
 translator = Translator()
 
 
