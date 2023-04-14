@@ -1,6 +1,7 @@
 from copy import deepcopy
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+from random import randint, random
 
 
 class Cell():
@@ -16,6 +17,7 @@ class Map_state (dict):
 
     def __init__(self):
         super().__init__(self)
+        self.amount = 0
     
     def set_live(self, *cells:Cell) -> None:
         for cell in cells:
@@ -23,11 +25,13 @@ class Map_state (dict):
                 self[cell.x][cell.y] = 1
             else:
                 self[cell.x] = {cell.y:1}
+            self.amount += 1
 
     def set_dead(self, cell:Cell) -> None:
         self[cell.x].pop(cell.y) 
         if len(self[cell.x]) == 0:
             self.pop(cell.x)
+        self.amount -= 1
 
     def get_surrounding(self) -> set:
         set_around = set()
@@ -67,13 +71,11 @@ class Map_state (dict):
         for cell in set_around:
             count, is_live = self.count_8(cell)
             if is_live:
-                if  count == 2 or count == 3:
+                if  (count == 2 or count == 3):
                     tmp_map.set_live(cell)
             else:
                 if count == 3:
                     tmp_map.set_live(cell)
-        
-        
         return tmp_map
 
 # initilize life
@@ -81,44 +83,52 @@ class Map_state (dict):
 life = Map_state()
 
 # seed random cell
-from random import randint
-for i in range(2000):
-    c = Cell(randint(0,55),randint(0,63))
-    life.set_live(c)
+num_of_cell = int(input('Enter number of cell to randomly seed: '))
+x_size = int(input('Enter x_size of the initial field to seed: '))
+y_size = int(input('Enter y_size of the initial field to seed: '))
 
+from random import randint
+for i in range(num_of_cell):
+    c = Cell(randint(0,x_size),randint(0,y_size))
+    life.set_live(c)
+print(life.amount)
 
 fig, ax = plt.subplots()
+plt.axis('equal')
 plt.axis('off')
     
 # this function runs repeatedly due to a cycle in 
 # anumation.FuncAnimation so we don't need anitional loop to 
 # perform life recalculation
 
-num_of_step = 100
+redraw_steps = int(input('Enter number of step to skip to draw new picture (like every step or every 10 steps or every 500 steps): '))
 # number of step between redraw of the map 
+steps = int(input('Enter number of draw iteration, 0 means inifinite iteration: '))
+if steps == 0:
+    steps = None
 
 def update(frame):
 
     global life 
-    # cannot find how to pass additional arguments to the func 
-    # in the animation.FuncAutoamtion
+    # cannot find a good way to pass additional arguments to the func 
+    # in the FuncAnimation
     ax.clear()
     plt.axis('off')
     
-    for i in range(num_of_step):
+    for i in range(redraw_steps):
         life = life.one_step()
     to_draw = life.get_live()
-    print(frame)
+    print(frame, life.amount)
 
-    scat = ax.scatter(to_draw[0], to_draw[1], c='b', marker = 's', linewidths= 1.0)
+    scat = ax.scatter(to_draw[0], to_draw[1], c='b', linewidths=0.1)
     
     return (scat)
 
 
 def init():
     ax.clear()
-
-ani = animation.FuncAnimation(fig=fig, func=update, frames=None, init_func=init)
+    plt.axis('off')
+ani = animation.FuncAnimation(fig=fig, func=update, frames=steps, repeat=False, init_func=init)
 plt.show()
 
  
