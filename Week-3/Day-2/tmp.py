@@ -65,9 +65,13 @@
 # f = my_func('fedya')
 # print(f.__doc__)
 
-a = 5
+import time
 
-if isinstance(a,int):
-    print(a)
 
+time1 = time.time()
+time.sleep(2)
+
+time2 = time.time()
+
+print((time2-time1))
 

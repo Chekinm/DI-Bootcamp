@@ -1,3 +1,8 @@
-xp
+xp, xp-plus
 
 https://github.com/Chekinm/DI-Bootcamp/tree/main/Week-3/Day-3/XP-exercise
+
+
+daily  challange
+
+https://github.com/Chekinm/DI-Bootcamp/tree/main/Week-3/Day-3/Daily-challange
