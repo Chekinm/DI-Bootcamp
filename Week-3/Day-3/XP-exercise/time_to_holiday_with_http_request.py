@@ -30,7 +30,7 @@ hd_name = resp_dict['name']
 # and just get the time from now to the holiday date
 time_today = datetime.datetime.now()
 
-holiday_date = datetime.datetime(curr_date.year,curr_date.month,curr_date.day,0,0,0)
+holiday_date = datetime.datetime(curr_date.year, curr_date.month, curr_date.day, 0, 0, 0)
 print(f'Time to  the next holiday, which is {hd_name}, is {holiday_date-time_today} hours.')
 
 # bum!!
