@@ -1,7 +1,6 @@
-from copy import deepcopy
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-from random import randint, random
+from random import randint
 
 
 class Cell():
@@ -53,7 +52,7 @@ class Map_state (dict):
         return(x_arr, y_arr)
 
     def count_8(self, c):
-        # calcualte number of neibor
+        # calculate number of neighbors
         count = 0
         is_live = False
         for i in range(-1,2):
@@ -71,7 +70,7 @@ class Map_state (dict):
         for cell in set_around:
             count, is_live = self.count_8(cell)
             if is_live:
-                if  (count == 2 or count == 3):
+                if  count == 2 or count == 3:
                     tmp_map.set_live(cell)
             else:
                 if count == 3:
@@ -87,11 +86,9 @@ num_of_cell = int(input('Enter number of cell to randomly seed: '))
 x_size = int(input('Enter x_size of the initial field to seed: '))
 y_size = int(input('Enter y_size of the initial field to seed: '))
 
-from random import randint
 for i in range(num_of_cell):
     c = Cell(randint(0,x_size),randint(0,y_size))
     life.set_live(c)
-print(life.amount)
 
 fig, ax = plt.subplots()
 plt.axis('equal')
