@@ -1,6 +1,19 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from random import randint
+import json
+from time import time
+
+
+def performance(fn):
+    def wrapper(*args, **kawrgs):
+        t1 = time()
+        result = fn(*args, **kawrgs)
+        t2 = time()
+        print(f'took {t2-t1} s')
+        return result
+    return wrapper
+
 
 
 class Cell():
@@ -23,14 +36,14 @@ class Cell():
     
     def __hash__(self) -> int:
         return hash((self.x,self.y))
-    
         
 
 class Map_state (dict):
 
     def __init__(self):
         super().__init__(self)
-        self.amount = 0
+        self.set_around = set()
+        #self.amount = 0
     
     def set_live(self, *cells:Cell) -> None:
         for cell in cells:
@@ -38,23 +51,31 @@ class Map_state (dict):
                 self[cell.x][cell.y] = 1
             else:
                 self[cell.x] = {cell.y:1}
-            self.amount += 1
+            for i in range(-1,2):
+                for j in range(-1,2):
+                    self.set_around.add(Cell(cell.x+i, cell.y+j)) 
 
-    def set_dead(self, cell:Cell) -> None:
-        self[cell.x].pop(cell.y) 
-        if len(self[cell.x]) == 0:
-            self.pop(cell.x)
-        self.amount -= 1
+    def set_dead(self, cell:Cell, virtual_death=False) -> None:
+        if not virtual_death:
+            self[cell.x].pop(cell.y) 
+            if len(self[cell.x]) == 0:
+                self.pop(cell.x)
+        for i in range(-1,2):
+            for j in range(-1,2):
+                self.set_around.add(Cell(cell.x+i, cell.y+j)) 
 
-    def get_surrounding(self) -> set:
-        set_around = set()
-        for x, dict_y in self.items():
-            for y in dict_y.keys():
-                for i in range(-1,2):
-                    for j in range(-1,2):
-                        set_around.add(Cell(x+i,y+j))
-        return set_around
+        # self.amount -= 1
+
+    # def get_surrounding(self) -> set:
+    #     set_around = set()
+    #     for x, dict_y in self.items():
+    #         for y in dict_y.keys():
+    #             for i in range(-1,2):
+    #                 for j in range(-1,2):
+    #                     set_around.add(Cell(x+i,y+j))
+    #     return set_around
     
+
     def get_live(self):
         # need this function to print map using matplotlib
         x_arr=[]
@@ -80,29 +101,60 @@ class Map_state (dict):
     
     def one_step(self):
         tmp_map = Map_state()
-        set_around = self.get_surrounding()
-        for cell in set_around:
+        # if self.set_around == None:
+        #     set_around = self.get_surrounding()
+        #print(self.set_around)
+        for cell in self.set_around:
             count, is_live = self.count_8(cell)
             if is_live:
-                if  count == 2 or count == 3:
+                if  (count == 2 or count == 3):
                     tmp_map.set_live(cell)
+                elif count < 2 or count > 3:
+                    tmp_map.set_dead(cell, virtual_death=True)
             else:
                 if count == 3:
                     tmp_map.set_live(cell)
         return tmp_map
 
 # initilize life
+@performance
+def n_step(life, n):
+    for i in range(n):
+        life = life.one_step()
+    return life
 
+# a = Cell(1,1)
+# b = Cell(2,1)
+# c = Cell(2,1)
+
+# s = set()
+# s.add(a)
+# s.add(b)
+# s.add(c)
+# print(s)
 life = Map_state()
 
-# seed random cell
-num_of_cell = int(input('Enter number of cell to randomly seed: '))
-x_size = int(input('Enter x_size of the initial field to seed: '))
-y_size = int(input('Enter y_size of the initial field to seed: '))
+#seed random cell
+# num_of_cell = int(input('Enter number of cell to randomly seed: '))
+# x_size = int(input('Enter x_size of the initial field to seed: '))
+# y_size = int(input('Enter y_size of the initial field to seed: '))
+with open('./feeld.json') as file:
+    
+    draw_dict = json.load(file)
 
-for i in range(num_of_cell):
-    c = Cell(randint(0,x_size),randint(0,y_size))
-    life.set_live(c)
+
+for point in draw_dict['point']:
+    
+    if point['status']:
+        c = Cell(point['x'],point['y'])
+        life.set_live(c)
+
+
+
+
+# for i in range(num_of_cell):
+#     c = Cell(randint(0,x_size),randint(0,y_size))
+#     life.set_live(c)
 
 fig, ax = plt.subplots()
 plt.axis('equal')
@@ -126,10 +178,10 @@ def update(frame):
     ax.clear()
     plt.axis('off')
     
-    for i in range(redraw_steps):
-        life = life.one_step()
+    life = n_step(life, redraw_steps)
+        
     to_draw = life.get_live()
-    print(frame, life.amount)
+    print(frame)
 
     scat = ax.scatter(to_draw[0], to_draw[1], c='b', linewidths=0.1)
     
