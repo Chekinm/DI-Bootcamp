@@ -5,17 +5,8 @@ from dataclasses import dataclass
 from menumanager import MenuItem, DBSQLManager, DBconnect
 
 
-
-db_env = {
-    'host': 'localhost',
-    'user': 'psyco_user',
-    'password': 'psyco_user_password',
-    'dbname': 'menu_manager',
-}
-
-
 def main_menu_selection() -> str:
-    """read and validate user choice"""
+    """read and validate user choice in main menu"""
     invalid_inp = True 
     while invalid_inp:
         #os.system("cls")
@@ -33,17 +24,21 @@ def main_menu_selection() -> str:
 
 
 def manage_specific_menu(db: DBSQLManager):
+    """read and and perform user choid in specific menu(table) menu"""
     invalid_input = True 
     while invalid_input:
+        # loop until user lik eto exit to the top level menu (press x)
         print(f"\nYou are editing '{db.table_name}' menu")
         print('Please enter what you wanna do')
         print('(a) Add new dish')
         print('(u) Update existing dish')
         print('(d) Delete dish from menu')
         print('(p) Print all dishes from menu')
-        print('(x) Exit')
+        print('(x) return to the top level menu')
         selection = input('Type you coice: ')
+
         if selection == 'a':
+            #append a dish into a menu
             try:
                 item = MenuItem(input('Enter dish name: '), int(input('Enter dish price: ')))
                 db.add_dish(item)
@@ -51,6 +46,7 @@ def manage_specific_menu(db: DBSQLManager):
                 print('\n'+str(e)+'\n'+'Try again')
             
         elif selection == 'u':
+            # update one of the menu dish  with new price
             try:
                 item = MenuItem(input('Enter dish name: '), int(input('Enter new dish price: ')))
                 db.update_dish(item)
@@ -58,6 +54,7 @@ def manage_specific_menu(db: DBSQLManager):
                 print('\n'+str(e)+'\n'+'Try again')
 
         elif selection == 'd':
+            # delete specific dish from menu
             try:
                 item = MenuItem(input('Enter dish name to delete: '),0)
                 db.delete_dish(item)
@@ -66,19 +63,21 @@ def manage_specific_menu(db: DBSQLManager):
                 print('\n'+str(e)+'\n'+'Try again')
 
         elif selection == 'p':
+            # print all item in table
             try:
-                
                 menu = db.get_menu()
                 print(f"Here is a dishes from  '{db.table_name}': ")
                 print(*menu, sep='\n')
-
             except ValueError as e:
                 print('\n'+str(e)+'\n'+'Try again')
-            
+
         elif selection == 'x':
+            # just exit
             invalid_input = False
         else:
-            print('PLease enter a valid option!')
+            # wrond input return to top
+            print('Please enter a valid option!')
+
 
 def create_new_menu() -> DBSQLManager:
     """read menu name from user input and create and return new db instance"""
@@ -162,12 +161,12 @@ def main():
             run = False
 
 db_env = {
+    #this is our database data to connect, chenge to yours
     'host': 'localhost',
     'user': 'psyco_user',
     'password': 'psyco_user_password',
     'dbname': 'menu_manager',
 }
-
 
 
 # just run it

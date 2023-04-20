@@ -3,7 +3,6 @@ from psycopg2 import sql
 from dataclasses import dataclass
 
 
-
 @dataclass
 class MenuItem():
     # this data class represent menu item
@@ -24,6 +23,14 @@ class DBconnect():
             self.connection = None
             print (er) 
 
+    def display_tables_names (self):
+        
+        '''lookup for table names''' 
+        with self.connection.cursor() as cursor:
+            cursor.execute("""SELECT table_name FROM information_schema.tables
+            WHERE table_schema = 'public'""")
+            return cursor.fetchall()
+                
 
 class DBSQLManager(DBconnect):
     """ database connection class, takes db_env data to connect
@@ -34,6 +41,7 @@ class DBSQLManager(DBconnect):
     def __init__(self, menu_name, **db_env):
         try:
             super().__init__(**db_env)
+            self.table_name = menu_name
             self.table_id = sql.Identifier(menu_name)
             with self.connection.cursor() as cursor:
                 cursor.execute(sql.SQL("""
@@ -91,7 +99,6 @@ class DBSQLManager(DBconnect):
         else:
             raise ValueError (f'{dish.dish_name.capitalize()} already exist in database.')
 
-
     def update_dish (self, dish: MenuItem):
         '''insert new dish into DB''' 
         if self.get_by_name(dish.dish_name):
@@ -106,38 +113,19 @@ class DBSQLManager(DBconnect):
         '''delete dish from DB''' 
         if self.get_by_name(dish.dish_name):
             with self.connection.cursor() as cursor:
-                cursor.execute("""
-                    DELETE FROM menu_item WHERE dish_name = %s;
-                    """, (dish.dish_name,)) 
+                cursor.execute(sql.SQL("""
+                    DELETE FROM {} WHERE dish_name = {};
+                    """).format(self.table_id, sql.Literal(dish.dish_name))) 
         else:
             raise ValueError (f'{dish.dish_name.capitalize()} does not exist in database.')
 
-        
-    def display_tables_names (self):
-        
-        '''lookup for table names''' 
-        with self.connection.cursor() as cursor:
-            cursor.execute("""SELECT table_name FROM information_schema.tables
-            WHERE table_schema = 'public'""")
-            for table in cursor.fetchall():
-                print(table)
-            
-        
-        # if self.get_by_name(dish.dish_name):
-        #     with self.connection.cursor() as cursor:
-        #         cursor.execute("""
-        #             DELETE FROM menu_item WHERE dish_name = %s;
-        #             """, (dish.dish_name,)) 
-        # else:
-        #     raise ValueError (f'{dish.dish_name.capitalize()} does not exist in database.')
-
-    
 
     def self_delete(self):
         """carefull with this.
-         it deletes instance db_table connected to menu_item instance,
+         it deletes db_table connected to menu_item instance,
           and clse connecton to database,
          but looks like don't delete the instance itself
+         need to think how to do that
          should refactor this in some way, need more googling"""
 
         try:
@@ -146,34 +134,8 @@ class DBSQLManager(DBconnect):
                     DROP TABLE IF EXISTS {0}""").format(self.table_id)
                     )
             self.connection.close()
-         
-                
+
         except psycopg2.OperationalError as er:
             self.connection = None
-            print (er) 
-        
-
-
-# from menumanager import MenuItem, DBSQLManager
-
-# db_env = {
-#     'host': 'localhost',
-#     'user': 'psyco_user',
-#     'password': 'psyco_user_password',
-#     'dbname': 'menu_manager',
-# }
-
-# menu_name = 'menu_item1'
-# db = DBSQLManager(menu_name, **db_env)
-# print('aaaaaaaa', db)
-# #print(db.get_by_name('burger'))
-# #print(*db.get_menu(), sep='\n')
-# pasta = MenuItem('pasta',140)
-# #db.add_dish(pasta)
-
-# burger = MenuItem('burger', 400)
-# db.update_dish(burger)
-
-# #db.delete_dish(pasta)
-# print(*db.get_menu(), sep='\n')
+            print (er)      
 
