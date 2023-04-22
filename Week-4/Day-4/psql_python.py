@@ -31,7 +31,13 @@ def select_columns (table_name, *args):
 
 query = select_columns('test', 'user_name', 'user_age')
 if connection:
-    print(run_select_query(connection, query))
+    a_gen = run_select_query(connection, query)
+    print(a_gen)
+    b = next(a_gen)
+    print(b)
+    b = next(a_gen)
+    print(b)
+    # print(next(a_gen))
     # with connection.cursor() as cursor:
     #     cursor.execute(query)
     #     print(type(cursor.fetchone()))
