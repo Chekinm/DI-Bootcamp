@@ -16,12 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from info.views import all_animals, animal
+from info.views import all_animals, one_animal, all_families, one_family
 
+
+from django.contrib import admin
+from django.urls import include, path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-  #  path('info/', include('info.urls')),
-    path('animals/', all_animals, name='animals_all'),
-    path('animals/<int:id>', animal, name='animal_specific'),
+    path("", include("info.urls")),
+    path("admin/", admin.site.urls),
 ]
+
+

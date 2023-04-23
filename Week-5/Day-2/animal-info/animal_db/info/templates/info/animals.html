@@ -7,11 +7,15 @@
     <title>Animals</title>
 </head>
 <body>
-    {%for animal in animals%}
-    <br>
-        {{animal}}
-    <br>
+    <h1>Animals:<h1>
+    <ul>
+        {% for animal in animals_list %}
+        <li>
+        <a href='{{animal.id}}''>{{animal.name}}</a>  
+        </li>
     {%endfor%}
-    
+    </ul>
+
+
 </body>
 </html>

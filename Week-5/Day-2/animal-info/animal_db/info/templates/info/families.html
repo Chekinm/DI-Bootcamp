@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animal</title>
+    <title>Animals</title>
 </head>
 <body>
-    
-        {{animal}}
+    <h1>Families:<h1>
+    <ul>
+        {% for family in families_list %}
+        <li>
+        <a href='{{family.id}}''>{{family.name}}</a>  
+        </li>
+    {%endfor%}
+    </ul>
+
 
 </body>
 </html>
