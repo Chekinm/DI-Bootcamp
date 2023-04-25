@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One animals</title>
-</head>
-<body>
-    <h2><a href={% url "all_animals" %}> Back </a></h2>
+{%extends 'base.html'%} 
+
+{% block title %}Animal{% endblock %}
+
+{%block content%} 
+<h2><a href={% url "all_animals" %}> Back </a></h2>
     
     <hr>
     <h2><strong>Name</strong>: {{animal.name}}     </h2>
@@ -22,6 +18,5 @@
     <img src="{% static animal.image %}" alt="Hi!" Height=400 width=600>
     {% endwith %}
     
+{% endblock %}
 
-</body> 
-</html>
