@@ -7,13 +7,21 @@
     <title>One animals</title>
 </head>
 <body>
+    <h2><a href={% url "all_animals" %}> Back </a></h2>
+    
+    <hr>
     <h2><strong>Name</strong>: {{animal.name}}     </h2>
     <h2><strong>Legs</strong>: {{animal.legs}}     </h2>
     <h2><strong>Weight</strong>: {{animal.weight}}     </h2>
     <h2><strong>Height</strong>: {{animal.height}}     </h2>
     <h2><strong>Speed</strong>: {{animal.speed}}     </h2>
     <h2><strong>Family</strong>: {{animal.family}}     </h2>
+   
+    {% load static %}
+    {% with animal.image as imgurl%}
+    <img src="{% static animal.image %}" alt="Hi!" Height=400 width=600>
+    {% endwith %}
     
 
-</body>
+</body> 
 </html>

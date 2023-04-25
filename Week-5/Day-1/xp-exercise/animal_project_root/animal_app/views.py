@@ -2,6 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from . import utils
 
+
+def index (request):
+    
+    return render (request, 'index.html')
+
+
 def all_animals (request):
     animals_list = utils.read_data('data.json','animals')
     context = {'animals_list':animals_list}
