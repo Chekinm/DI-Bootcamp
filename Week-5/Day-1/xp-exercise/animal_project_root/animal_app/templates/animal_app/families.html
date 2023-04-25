@@ -4,13 +4,11 @@
 
 {%block content%} 
 
-    <h1><a href={% url "all_animals" %}> All animals</a><h1> 
-    <h1><a href={% url "all_families" %}> All families </a></h1>
-    <hr>
     <h1>Families:<h1>
-    <ul>
+        <ul class="list-group ">
         {% for family in families_list %}
-        <li>
+        <li class="list-group-item bg-dark border-0">
+            
             <a href='{{family.id}}'>{{family.name}}</a>  
         </li>
         {%endfor%}

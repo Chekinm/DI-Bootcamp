@@ -2,13 +2,14 @@
 
 {% block title %}Family{% endblock %}
 
+<div class=>
 {%block content%} 
 
     <h2><a href={% url "all_families" %}> Back </a></h2>
     <h1>{{family.name}} family has next memebers.</h1>
-    <ul>
+    <ul class="list-group ">
         {% for animal in families_animals_list %}
-        <li>
+        <li class="list-group-item bg-dark border-0">
             <h2><a href={% url "one_animal" animal.id %}> {{ animal.name }}</a></h2>
         </li>
         {%endfor%}
