@@ -1,7 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from . import utils
-
+from .data_classes import Animal, Animals, Families, Family
 
 def index (request):
     
@@ -9,27 +7,33 @@ def index (request):
 
 
 def all_animals (request):
-    animals_list = utils.read_data('data.json','animals')
-    context = {'animals_list':animals_list}
+
+    animals = Animals('data.json')
+    context = {'animals_list':animals.list}
+
     return render (request, 'animals.html', context)
 
 def one_animal (request, id:int):
-    animals_list = utils.read_data('data.json','animals')
-    animal = utils.read_instance(animals_list, id)
-    context = {'animal':animal}
+
+    animals = Animals('data.json')
+    animal = Animal(animals, id)
+    context = {'animal':animal.data}
     return render (request, 'one_animal.html', context)
 
 def all_families (request):
-    families_list = utils.read_data('data.json','families')
-    context = {'families_list':families_list}
+    families = Families('data.json')
+    context = {'families_list':families.list}
     return render (request, 'families.html', context)
                                 
 def one_family (request, id:int):
-    families_list = utils.read_data('data.json','families')
-    animals_list = utils.read_data('data.json','animals')
-    family = utils.read_instance(families_list, id)
-    families_animals_list = utils.read_animal_by_family(animals_list, id)
-    context = {'family':family,
-               'families_animals_list':families_animals_list}
+    families = Families('data.json')
+    animals = Animals('data.json')
+    family = Family(families, id)
+    
+    family.get_family_memebers(animals)
+
+    context = {'family':family.data,
+               'families_animals_list':family.animals_list}
+    
     return render (request, 'one_family.html', context)
 
