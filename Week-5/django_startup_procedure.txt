@@ -1,0 +1,20 @@
+1. create dir
+2. add derectory which you goon create local_env to .gitignore (i create a file in the directory with exeption)
+3. python -m venv <local_Env_dir>
+4. pip install django
+5. django-admin startproject <projectname>
+6. rename root dir to avoid misleading name (not mandatory)
+7. go to project dir
+8. python manage.py startapp <app_name>
+9. adjust settings.py
+	9.1 add app_name to INSTALLED_APP list, don't forget comma after each string
+		name of the app can be found (or even configured) in <app_dir>app.py
+	9.2 add 'templates' dir and correspondig line to dirs list in settings.
+		oyu can add 'tempaltes' as any dir counted from BASE_DIR by default. Or can add Path.join(BASE_DIR, <templates-dir),
+		don't forget comma after each line
+	9.3 configure static_files dir in case css or any other files will be used
+	9.4 configure database if applicable:
+		configure database
+		configure database settings.
+
+10. configure models
