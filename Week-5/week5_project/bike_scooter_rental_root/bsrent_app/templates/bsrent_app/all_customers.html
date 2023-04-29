@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Hello renters!{% endblock title %}
+{% block content %}
+
+<ul><h1>List of customers:</h1> 
+
+
+{% for customer in customers_list %}
+    <li>
+        <h3><a href='all_customers/{{customer.id}}'>{{customer}}</a></h3>
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock content %}

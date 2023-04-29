@@ -10,7 +10,7 @@ from random import sample, randint, choice
 fake = Faker()
 
 START_DATE = datetime.date(2018, 1, 1)
-DATE_ITER = datetime.timedelta(1)
+DATE_ITER = datetime.timedelta(2)
 current_date = datetime.date(2018, 1, 1)
 NUMBER_OF_CUSTOMER = 1000
 NUMBER_OF_STATION = 10
@@ -72,11 +72,12 @@ for i in range(NUMBER_OF_STATION):
 
     number      = fake.phone_number()
     address     = new_address
-    
+    capacity    = 1000
     new_rental_station = Station(
                         name = street,  
                         number = number, 
                         address = address,
+                        capacity = capacity,
                         )
     
     new_address.save()
@@ -142,6 +143,8 @@ for i in range(NUMBER_OF_VEHICLE):
 
 all_vehicle = Vehicle.objects.all() # list of vehicle objects
 all_rental_station = Station.objects.all() #list of station objects
+
+
 
 for vehicle in all_vehicle:
 # take each vehicle and put it into one of the station

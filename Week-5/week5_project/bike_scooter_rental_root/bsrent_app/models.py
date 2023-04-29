@@ -14,7 +14,7 @@ class Address(models.Model):
     postal_code = models.CharField(max_length=50)  
 
     def __str__(self):
-        f"""{self.street}, {self.house_number}
+        return f"""{self.street}, {self.house}
         {self.postal_code}, {self.country}, {self.city}"""  
 
     
@@ -35,7 +35,8 @@ class Station(models.Model):
     name    = models.CharField(max_length=250)
     number  = models.CharField(max_length=40, unique=True)
     address = models.ForeignKey(Address, on_delete=models.SET_NULL, blank=True, null=True)
-    
+    capacity = models.IntegerField()
+
     def __str__(self):
         return f'{self.name}'
 
