@@ -7,11 +7,11 @@ class TestModel(models.Model):
 class Address(models.Model):
     """general table, represent all addresses somehow entered into DB"""
     
-    house       = models.CharField(max_length=250)
+    house       = models.CharField(max_length=50)
     street      = models.CharField(max_length=250)    
-    city        = models.CharField(max_length=50)
-    country     = models.CharField(max_length=50)
-    postal_code = models.CharField(max_length=25)  
+    city        = models.CharField(max_length=150)
+    country     = models.CharField(max_length=150)
+    postal_code = models.CharField(max_length=50)  
 
     def __str__(self):
         f"""{self.street}, {self.house_number}
@@ -83,25 +83,25 @@ class Rental(models.Model):
         Each rental has a vehicle, customer, and rental_start date.
         rental_end_date can be NULL, which means that rental is currently active 
         """
-    rental_start_date   = models.DateField(blank=False)
-    rental_return_date  = models.DateField(null=True, blank=True)
-    customer            = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    vehicle             = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+    start_date   = models.DateField(blank=False)
+    return_date  = models.DateField(null=True, blank=True)
+    customer     = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='customer_rental')
+    vehicle      = models.ForeignKey(Vehicle, on_delete=models.CASCADE, related_name='vehicles_rentals')
 
     def __str__(self):
-        return f'{self.rental_start_date}, {self.rental_return_date}'
+        return f'{self.start_date}, {self.return_date}'
     
 class VehicleAtStation (models.Model):
-    """talbe stores each transaction when vehicl is not rented, but on  
+    """table stores each transaction, when vehicle is not rented, but on  
         the rental station.
         Each VehiclAtStation event has a vehicle, rentalstations, and arrival_date
         depature_date can be NULL, which means that vehicle is on rental station now"""
     
     arrival_date    = models.DateField(blank=False)
     departure_date  = models.DateField(null=True, blank=True)
-    vehicle         = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
-    station         = models.ForeignKey(Station, on_delete=models.CASCADE)
+    vehicle         = models.ForeignKey(Vehicle, on_delete=models.CASCADE, related_name='vehicles_station_record')
+    station         = models.ForeignKey(Station, on_delete=models.CASCADE, related_name='vehicle_at_station')
     
     def __str__(self):
-        return f'{self.arrivale_date}, {self.departure_date}'
+        return f'{self.arrival_date}, {self.departure_date}'
     
