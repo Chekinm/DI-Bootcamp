@@ -1,0 +1,35 @@
+
+
+{% extends 'base.html' %}
+{% block title %}Hello renters!{% endblock title %}
+{% block content %}
+
+
+<h1>List of all stations!</h1>
+<ul>
+    {% for station in page_obj %}
+    <li><h3><a href={{station.id}}>{{station}}</a></h3></li>
+    {% endfor %}
+
+</ul>
+
+
+{% endblock content %}
+
+
+ 
+ 
+ 
+
+    {% comment %} <ul>
+    {% for station in page_obj %}
+        <li><h4>
+            <a href={{station.id}}>{{station}}</a>
+        </h4></li>
+    {% endfor %}
+    </ul>
+
+
+{% include 'paginator.html' %}
+
+{% endblock content %}  {% endcomment %}

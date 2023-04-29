@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Hello renters!{% endblock title %}
+{% block content %}
+
+
+<h1>List of all vehicle!</h1> 
+
+    <table border = "1px solid black" width="50%">
+        <tr>
+          <th>ID</th>
+          <th>Vehicle type</th>
+          <th>Status</th>
+        </tr>
+        {% for vehicle in page_obj %}
+        <tr>
+          <td><a href={{vehicle.0.id}}>Id: {{vehicle.0.id}}</a></td>
+          <td><a href={{vehicle.0.id}}>{{vehicle.0}}</a></td>
+            <td>{% if vehicle.1 == None  %}
+                    <span style="background-color:PaleGreen">Avialable to rent</span>
+                {% else %}
+                    <span style="background-color:OrangeRed">Currently rented</span>
+                {% endif %} 
+            </td>
+        </tr>
+        {% endfor %}
+      </table>
+    
+{% include 'paginator.html' %}
+
+{% endblock content %}

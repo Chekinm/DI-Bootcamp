@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Hello renters!{% endblock title %}
+{% block content %}
+
+<h1>{{station.name}} rental station.</h1> 
+<hr>
+<h3> Station address:</h3>
+<h4>{{ station.address|linebreaks }}</h4>
+<hr>
+
+<h3>Currently '{{station.name}}' rental station has next vehicle avialable:</h3>
+    <table border = "1px solid black" width="50%">
+        <tr>
+          <th>ID</th>
+          <th>Vehicle type</th>
+          <th>Status</th>
+        </tr>
+        {% for vehicle in page_obj %}
+        <tr>
+          <td><a href='/all_vehicles/{{vehicle.vehicle.id}}'>Id: {{vehicle.vehicle.id}}</a></td>
+          <td><a href='/all_vehicles/{{vehicle.vehicle.id}}'>{{vehicle.vehicle}}</a></td>
+          <td><span style="background-color:PaleGreen">
+                <a href='/rent_vehicle/{{vehicle.vehicle.id}}'>Rent this vehicle</a>
+              </span>
+           </td>
+        </tr>   
+        {% endfor %}
+    </table>
+<br>
+{% include 'paginator.html' %}
+
+{% endblock content %}

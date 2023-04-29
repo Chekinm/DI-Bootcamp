@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Hello renters!{% endblock title %}
+{% block content %}
+
+
+<h1>Vehicle details</h1>
+<br><hr> 
+<h2>Vehcile type and size:            {{vehicle}}</h1>
+<h2>Vehcile ID:            {{vehicle.id}}</h1>
+
+<h2>{{status_msg|linebreaks}}</h2>
+{% comment %} <h2>Last station:   {{vehicles_stations}}</h2>
+
+
+
+{{last_renter}}
+{{last_station}} {% endcomment %}
+
+
+{% comment %} <h2>Last rental:    <a href='/all_rentals/{{vehicle_rentals.id}}'>{{vehicle_rentals[0]}}</a> </h2>
+<h2>Last station:   {{vehicles_stations}}</h2> {% endcomment %}
+
+
+
+{% endblock content %}

@@ -4,22 +4,30 @@
 
 <h1>{{customer.first_name}} {{customer.last_name}}</h1> 
 
-<ul><h2>{{customer.first_name}}'s  open rentals!<h2>
-{% for rental in retnals_open %}
-    <li>
-        <h4><a href='all_rentals/{{rental.id}}'>{{rental}}</a></h4>
-    </li>
-{% endfor %}
-</ul>
+<hr>
+<h2> Customer address:</h2>
+<h3>{{ customer.address|linebreaks }}</h3>
+<hr>
 
-
-<ul><h2>{{customer.first_name}}'s closed rental!<h2>
-{% for rental in rentals_closed %}
+<h2>{{customer.first_name}}'s  open rentals!</h2>
+    <ul>
+    {% for rental in retnals_open %}
     <li>
-        <h4><a href='all_rentals/{{rental.id}}'>{{rental}}</a></h4>
+        <h4><a href='/rentals/{{rental.id}}'>{{rental}}</a></h4>
     </li>
-{% endfor %}
-</ul>
+    {% endfor %}
+    </ul>
+<br>
+<hr>
+
+<h2>{{customer.first_name}}'s closed rental!</h2>
+    <ul>
+    {% for rental in rentals_closed %}
+    <li>
+        <h4><a href='/rentals/{{rental.id}}'>{{rental}}</a></h4>
+    </li>
+    {% endfor %}
+    </ul>
 
 </ul>
 

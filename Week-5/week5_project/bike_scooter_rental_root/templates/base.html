@@ -5,7 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
+    <style>
+        ul#menu li {
+          display:inline;
+          padding:0px 20px;
+        }
+    </style>
 </head>
+<nav>
+    <ul id = "menu">
+        <li><a href='/all_customers'>Customers</a></li>
+        <li><a href='/all_stations'>Stations</a></li>
+        <li><a href='/all_vehicles'>Vehicle</a></li>
+        <li><a href='/rentals'>Rentals</a></li>
+        <li><a href="javascript:history.back()">Go Back</a></li>
+    </ul>
+</nav>
 <body>
     {% block content %}{% endblock content %}
 </body>

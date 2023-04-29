@@ -2,14 +2,18 @@
 {% block title %}Hello renters!{% endblock title %}
 {% block content %}
 
-<ul><h1>List of customers:</h1> 
+
+<ul><h1>List of all customers!</h1> 
 
 
-{% for customer in customers_list %}
-    <li>
-        <h3><a href='all_customers/{{customer.id}}'>{{customer}}</a></h3>
-    </li>
-{% endfor %}
-</ul>
+    {% for customer in page_obj %}
+        <li>
+            <a href={{customer.id}}>{{customer.last_name}} {{customer.first_name}}</a>
+        </li>
+    {% endfor %}
+    </ul>
+
+
+{% include 'paginator.html' %}
 
 {% endblock content %}

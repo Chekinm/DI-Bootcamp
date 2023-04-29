@@ -14,8 +14,7 @@ class Address(models.Model):
     postal_code = models.CharField(max_length=50)  
 
     def __str__(self):
-        return f"""{self.street}, {self.house}
-        {self.postal_code}, {self.country}, {self.city}"""  
+        return f'{self.street}, {self.house}\n{self.postal_code}, {self.country}, {self.city}'  
 
     
 class Customer(models.Model):
@@ -65,6 +64,9 @@ class Vehicle(models.Model):
     date_created    = models.DateField(auto_now_add=True)
     real_cost       = models.FloatField()
 
+    class Meta:
+        ordering = ('vehicle_type','size',)
+
     def __str__(self):
         return f'{self.size} {self.vehicle_type}'
     
@@ -90,7 +92,9 @@ class Rental(models.Model):
     vehicle      = models.ForeignKey(Vehicle, on_delete=models.CASCADE, related_name='vehicles_rentals')
 
     def __str__(self):
-        return f'{self.start_date}, {self.return_date}'
+        if self.return_date == None:
+            return f'Start date: {self.start_date}, Not returned yet!'
+        return f'Start date: {self.start_date}, end date: {self.return_date}'
     
 class VehicleAtStation (models.Model):
     """table stores each transaction, when vehicle is not rented, but on  

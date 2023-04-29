@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Hello renters!{% endblock title %}
+{% block content %}
+
+
+<h1>List of open rentals!</h1> 
+
+
+    <table border = "1px solid black" width="75%">
+        <tr>
+          <th>ID</th>
+          <th>Start date</th>
+          <th>Return date</th>
+          <th>Action</th>
+        </tr>
+        {% for rental in page_obj %}
+        <tr>
+          <td><a href='/rentals/{{rental.id}}'>{{rental.id}}</a></td>
+          <td>{{rental.start_date}}</td>
+          <td>Not returned yet</td>
+          <td><a href='/rentals/{{rental.id}}'>Close this rental</a></td>    
+        </tr>
+        {% endfor %}
+        
+      </table>
+
+
+
+{% include 'paginator.html' %}
+
+{% endblock content %}
