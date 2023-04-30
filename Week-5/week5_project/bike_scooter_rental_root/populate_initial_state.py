@@ -133,7 +133,8 @@ for i in range(NUMBER_OF_VEHICLE):
                     vehicle_type   = vt,
                     size           = sz,
                     real_cost      = real_cost,
-                    date_created = START_DATE
+                    date_created = START_DATE,
+                    status          = 2
                     ) 
 
     new_vehicle.save()
@@ -156,6 +157,8 @@ for vehicle in all_vehicle:
                         vehicle         = vehicle,
                         station         = station,
                         )
+    vehicle.status = 1
+    vehicle.save()
     new_vehicle_at_station.save()
 
 

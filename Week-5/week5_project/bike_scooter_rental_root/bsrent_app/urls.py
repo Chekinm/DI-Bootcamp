@@ -4,11 +4,13 @@ from . import views
 urlpatterns = [
     path('', views.rent, name='rent'), 
     path('rent/', views.rent, name='rent'), #main page 
+    path('manage_database/', views.manage_database, name='manage_database'), #if you like to add stuff  
 
+    path("add_address/", views.AddAddress.as_view(), name="add_address"),
 
     path('all_customers/', views.all_customers, name='all_customers'),
     path("all_customers/<int:id>/", views.one_customer, name="one_customer"),
-    #path('add_all_customers/', views.add_user, name='add_user'),
+    path('add_customer/', views.AddCustomer.as_view(), name='add_customer'),
 
 
 
@@ -20,24 +22,16 @@ urlpatterns = [
    
     path('all_stations/', views.all_stations, name='all_stations'),
     path("all_stations/<int:id>/", views.one_station, name="one_station"),
-    #path("add_stations/<int:id>/", views.add_station, name="add_station"),
+    path("add_station/", views.AddStation.as_view(), name="add_station"),
 
 
 
     path('all_vehicles/', views.all_vehicles, name='all_vehicles'),
     path("all_vehicles/<int:id>/", views.one_vehicle, name="one_vehicle"),
+    path("add_vehicle/", views.AddVehicle.as_view(), name="add_vehicle"),
 
-
-
-    # path('stations', views.all_stations, name='all_stations'),  
-    # path('vehicles', views.all_vehicles, name='all_vehicles'),  
-    # path('retnals', views.all_rentals, name='all_customers'),   
-
-
-
-
-
-
+    path('test/', views.test)
+   
 
 ]
 

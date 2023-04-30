@@ -1,7 +1,5 @@
 from django.db import models
-
-class TestModel(models.Model):
-    name = models.CharField(max_length=50)
+from django.db.models.signals import post_save
 
 
 class Address(models.Model):
@@ -58,11 +56,18 @@ class VehicleSize(models.Model):
 
 
 class Vehicle(models.Model):
-    """Vehichle table"""  
+    """Vehichle table""" 
+    class Status(models.IntegerChoices):
+        RENTED = 0
+        ON_STATION = 1
+        NO_WHERE = 2
+
     vehicle_type    = models.ForeignKey(VehicleType, on_delete=models.CASCADE) 
     size            = models.ForeignKey(VehicleSize, on_delete=models.CASCADE) 
     date_created    = models.DateField(auto_now_add=True)
     real_cost       = models.FloatField()
+    status          = models.IntegerField(choices=Status.choices, default=2)   
+    
 
     class Meta:
         ordering = ('vehicle_type','size',)
@@ -110,3 +115,19 @@ class VehicleAtStation (models.Model):
     def __str__(self):
         return f'{self.arrival_date}, {self.departure_date}'
     
+
+# def send_to_station(sender, instance, created, **kwargs):
+#     station, current_date = Station.objects.get(id=1), date.today()
+#     new_vehicle_at_station = VehicleAtStation(
+#             arrival_date    = current_date,
+#             # departure_date is empty means vehicl is free to rent
+#             vehicle         = instance,
+#             station         = station,
+#                     )
+
+#     new_vehicle_at_station.save()
+#     print(f"VEHICLE {instance} sent to {station}")
+#     return new_vehicle_at_station
+
+
+# post_save.connect(receiver=send_to_station, sender=Vehicle)

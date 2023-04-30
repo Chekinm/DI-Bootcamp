@@ -1,6 +1,6 @@
 import os
 from faker import Faker
-from bsrent_app.models import  Address, Customer, Station, RentalRate, Rental, VehicleAtStation, VehicleType, VehicleSize, Vehicle
+from .models import  Address, Customer, Station, RentalRate, Rental, VehicleAtStation, VehicleType, VehicleSize, Vehicle
 import datetime
 from faker import Faker
 from random import sample, randint, choice
@@ -26,6 +26,21 @@ def start_rental(vehicle, customer, station, current_date):
     at_station_record.save()
     rental.save()
     return rental
+
+
+
+def send_to_station(vehicle, station, date):
+    
+    new_vehicle_at_station = VehicleAtStation(
+            arrival_date    = current_date,
+            # departure_date is empty means vehicl is free to rent
+            vehicle         = vehicle,
+            station         = station,
+                    )
+    vehicle.status = ON_STATION
+    vehicle.save()
+    new_vehicle_at_station.save()
+    return new_vehicle_at_station
 
 # station = Station.objects.get(id=5)
 # print(station)

@@ -13,10 +13,12 @@
         </tr>
         {% for vehicle in page_obj %}
         <tr>
-          <td><a href={{vehicle.0.id}}>Id: {{vehicle.0.id}}</a></td>
-          <td><a href={{vehicle.0.id}}>{{vehicle.0}}</a></td>
-            <td>{% if vehicle.1 == None  %}
+          <td><a href={{vehicle.id}}>Id: {{vehicle.id}}</a></td>
+          <td><a href={{vehicle.id}}>{{vehicle}}</a></td>
+            <td>{% if vehicle.status == 1  %}
                     <span style="background-color:PaleGreen">Avialable to rent</span>
+                {% elif vehicle.status == 2 %}
+                    <span style="background-color:yellow">Not at stations yet</span>
                 {% else %}
                     <span style="background-color:OrangeRed">Currently rented</span>
                 {% endif %} 

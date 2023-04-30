@@ -14,7 +14,7 @@
         {% for rental in page_obj %}
         <tr>
           <td><a href='/rentals/{{rental.id}}'>{{rental.id}}</a></td>
-          <td>{{rental.start_date}}</td>
+          <td><a href='/rentals/{{rental.id}}'>{{rental.start_date}}</a></td>
           <td>{{rental.return_date}}</td>
         </tr>
         {% endfor %}

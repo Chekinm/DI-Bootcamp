@@ -32,7 +32,9 @@ def start_rental(customer, station, current_date):
                 customer     = customer,
                 vehicle      = vehicle,
                 )
-        free_vehicle_list[0].save()
+        vehicle.status = 0
+        vehicle.save()
+        free_vehicle_list[0].save() # vehicle_at_station object
         rental.save()
     else:
         raise ValueError('Station is runing out of vehicle. Come back later, or choose another station')
@@ -50,6 +52,8 @@ def end_rental(rental, station):
                 vehicle         = vehicle,
                 station         = station,
                      )
+        vehicle.status = 1
+        vehicle.save()
         rental.save()
         #print(rental.return_date)
         new_vehicle_at_station.save()
@@ -78,7 +82,7 @@ for i in range(NUMBER_OF_DAYS):
 
     # new day, new rentals
     current_date += DATE_ITER
-    print(f'Today is {current_date}')
+    
     num_of_rental = randint(MIN_RENT_PER_DAY, MAX_RENT_PER_DAY)
     
     active_rentals = Rental.objects.filter(return_date__isnull = True)
