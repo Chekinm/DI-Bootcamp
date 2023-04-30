@@ -13,7 +13,7 @@
           <th>Return date</th>
           <th>Action</th>
         </tr>
-        {% for rental in page_obj %}
+        {% for rental in open_rentals %}
         <tr>
           <td><a href='/rentals/{{rental.id}}'>{{rental.id}}</a></td>
           <td>{{rental.start_date}}</td>

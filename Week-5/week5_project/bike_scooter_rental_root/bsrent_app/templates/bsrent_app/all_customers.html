@@ -6,7 +6,7 @@
 <ul><h1>List of all customers!</h1> 
 
 
-    {% for customer in page_obj %}
+    {% for customer in customers %}
         <li>
             <a href={{customer.id}}>{{customer.last_name}} {{customer.first_name}}</a>
         </li>

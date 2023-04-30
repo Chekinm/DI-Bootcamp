@@ -76,6 +76,28 @@ class Vehicle(models.Model):
         return f'{self.size} {self.vehicle_type}'
     
 
+    @property
+    def status_string(self):
+
+        rentals = self.vehicles_rentals
+
+        if self.status == 2:  # NO_WHERE
+            return f'''Vehicle is is not at the staion yet'''
+        
+        elif self.status == 0: # RENTED
+            last_rental = rentals.order_by('-start_date')[0]
+            last_renter = last_rental.customer 
+            last_station_record = self.vehicles_station_record.order_by('-arrival_date')[0]
+            last_station = last_station_record.station.name
+            return f'''Vehicle is currently rented by {last_renter}\n
+                It was rented on {last_rental.start_date}, at the {last_station} rental station.'''
+        
+        else:   # AVIALABLE AT STATION
+            last_station_record = self.vehicles_station_record.order_by('-arrival_date')[0]
+            last_station = last_station_record.station.name
+            return f'''Vehicle is currently availble for rent  at {last_station} rental station.'''
+
+
 class RentalRate(models.Model):
     """price list"""
     daily_rate      = models.FloatField()
@@ -100,6 +122,7 @@ class Rental(models.Model):
         if self.return_date == None:
             return f'Start date: {self.start_date}, Not returned yet!'
         return f'Start date: {self.start_date}, end date: {self.return_date}'
+    
     
 class VehicleAtStation (models.Model):
     """table stores each transaction, when vehicle is not rented, but on  
