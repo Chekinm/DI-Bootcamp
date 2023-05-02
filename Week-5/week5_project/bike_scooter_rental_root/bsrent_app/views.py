@@ -166,6 +166,26 @@ class OneVehicle(generic.DetailView):
         return context
 
 
+######################UPDATE VIEWS###########################
+
+class StartRental(generic.UpdateView):
+    model=Rental
+    template_name = 'update_post.html'
+    model = Post
+    form_class = PostForm
+    success_url = reverse_lazy("posts-all")
+
+
+
+class EndRental(generic.UpdateView):
+    
+    model=Rental
+    
+    
+    pass
+
+
+
 ############################some test on post and get ##########################
 
 

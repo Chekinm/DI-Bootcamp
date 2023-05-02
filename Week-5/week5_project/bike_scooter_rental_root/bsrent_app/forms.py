@@ -18,10 +18,7 @@ class CustomerForm(forms.ModelForm):
         model = Customer
         fields = '__all__'
 
-
-
-
-    
+ 
 class StationForm(forms.ModelForm):
     
     class Meta:
@@ -29,17 +26,17 @@ class StationForm(forms.ModelForm):
         fields = '__all__'
 
 
-class StartRental(forms.ModelForm):
-
-    class Meta:
-        model = Rental
-        fields = '__all__'
-
-
 class AddAddress(forms.ModelForm):
 
     class Meta:
         model = Address
+        fields = '__all__'
+
+
+class StartRental(forms.ModelForm):
+
+    class Meta:
+        model = Rental
         fields = '__all__'
 
 

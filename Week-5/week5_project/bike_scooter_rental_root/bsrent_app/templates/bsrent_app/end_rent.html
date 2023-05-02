@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}End rental{% endblock title %}
+{% block content %}
+    {{form}}
+    <form method="POST">
+        {% csrf_token %}
+        
+        
+        <button type='submit' name='mybutton' value='but1'>Start rent</button>
+
+    </form>
+
+    
+{% endblock content %}

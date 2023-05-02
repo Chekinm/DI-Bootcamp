@@ -68,14 +68,12 @@ class Vehicle(models.Model):
     real_cost       = models.FloatField()
     status          = models.IntegerField(choices=Status.choices, default=2)   
     
-
     class Meta:
         ordering = ('vehicle_type','size',)
 
     def __str__(self):
         return f'{self.size} {self.vehicle_type}'
     
-
     @property
     def status_string(self):
 
@@ -123,7 +121,7 @@ class Rental(models.Model):
             return f'Start date: {self.start_date}, Not returned yet!'
         return f'Start date: {self.start_date}, end date: {self.return_date}'
     
-    
+
 class VehicleAtStation (models.Model):
     """table stores each transaction, when vehicle is not rented, but on  
         the rental station.
