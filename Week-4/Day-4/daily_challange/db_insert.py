@@ -32,7 +32,7 @@ def select_columns (table_name, *args):
 
 def construct_query (country: Country) -> str:
     query = sql.SQL("""INSERT INTO from_api 
-        (name, capital, flag, subregion, population)
+        (name, capital, flag_url, subregion, population)
         VALUES ({0},{1},{2},{3},{4})""").format(
         sql.Literal(country.name),
         sql.Literal(country.capital),
