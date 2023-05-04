@@ -1,39 +1,40 @@
-import asyncio
 from requests import get
 import json
-from dbmanager import DBconnect
 
 
 async def get_yad2_data(request_params) -> dict:
     """make an api request to yad2 using request_params dict
     get back a dictionary with desired flats 
     we need a link a number of room and photos urls list for a POC prototype
-    as we don't have a"""
+    """
     
     # some parameters a still hardcoded, need testing which on eshould be tuned by users
-    
+ 
     payload = { 
-            "cat" : "2",
-            "subcat" : "2",
-            "price" : "-1000-27000", # will add price selection in next release
-            "airConditioner" : "1",  # don't think anybody need flat whitout:)
-            "balcony" : f"{int(request_params[5])}",
-            "longTerm" : "1",     # 
-            "squaremeter" : f"{request_params[6]}-{request_params[7]}",
-            "z" : "14",   # don't know what it means
-            "center_point[]" : f"{request_params[2]}+{request_params[3]}",
-            "distance[]" : f"{request_params[4]}",
-            "page": 1    
+            'cat' : "2",
+            'subcat' : "2",
+            'price' : "1000-27000", # will add price selection in next release
+            'airConditioner' : "1",  # don't think anybody need flat whitout:)
+            'balcony' : f"{int(request_params[5])}",
+            'longTerm' : "1",     # 
+            'squaremeter' : f"{request_params[6]}-{request_params[7]}",
+            'z' : "14",   # don't know what it means
+            'center_point[]' : f"{request_params[3]},{request_params[2]}",
+            'distance[]' : f"{request_params[4]}",
+            'isMapView': '1',
+            'page' : '1'    
         }
 
     print(payload)
     try:
+        
         yad2_response = get('https://www.yad2.co.il/api/feed/get', params=payload)
+
         if yad2_response.status_code == 200:
             print('yad2 is good today')
 
             yad2_response_dict = json.loads(yad2_response.content)
-            #print(yad2_response.url)
+            
         else:
             print('We exireinced a porblem with scraping. Get you a Rishon json instead.')
             with open('json_data.json', 'r') as outfile:

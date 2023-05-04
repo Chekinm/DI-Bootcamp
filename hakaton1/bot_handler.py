@@ -1,4 +1,4 @@
-from aiogram import Bot, Dispatcher, types
+from aiogram import Bot, Dispatcher, types, utils
 from aiogram.types import Message, Location, ReplyKeyboardMarkup, KeyboardButton
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 # from aiogram.types import 
@@ -137,7 +137,7 @@ async def callback_handler(callback: types.CallbackQuery):
             balc = False
         else:
             balc = True
-        query = ('balcony', callback.data) 
+        query = ('balcony', bool(callback.data)) 
         await db.change_properties(query,callback.from_user.id)
 
 
@@ -159,9 +159,8 @@ async def get(message: types.Message):
 
     request_config = await db.get_request_data(str(message.from_user.id))
     resp_dict = await get_yad2_data(request_config)
-    #print(resp)
     ind = 0
-    while ind < 5 and ind < len(resp_dict['feed']["feed_items"]): 
+    while ind < 6 and ind < len(resp_dict['feed']["feed_items"]): 
         # get 6 flats, probably good idea to add this control to configuration as it user preference
         try:
             url = f"https://www.yad2.co.il/item/{resp_dict['feed']['feed_items'][ind]['link_token']}"
@@ -173,10 +172,13 @@ async def get(message: types.Message):
             images = resp_dict['feed']['feed_items'][ind]['images_urls']
             if len(images) > 1:
                 m = []
-                for _ in images:
-                    m.append(types.InputMediaPhoto(_))
-                
-                await bot.send_media_group( chat_id=message.from_user.id, media=m )
+                try:
+                    for _ in images:
+                        m.append(types.InputMediaPhoto(_))
+                    
+                    await bot.send_media_group( chat_id=message.from_user.id, media=m )
+                except utils.exceptions.ValidationError as er:
+                    print("not ehough photo, check link on yad2 site")
             await message.answer(msg)
 
         except KeyError:
@@ -192,8 +194,6 @@ async def get(message: types.Message):
 @dp.message_handler(commands=['print'])
 async def start(message: types.Message):
     res = await db.get_request_data(str(message.from_user.id))   
-    #print (res)
-    
     await message.answer(res)
 
 
