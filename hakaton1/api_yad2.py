@@ -19,7 +19,7 @@ async def get_yad2_data(request_params) -> dict:
             'longTerm' : "1",     # 
             'squaremeter' : f"{request_params[6]}-{request_params[7]}",
             'z' : "14",   # don't know what it means
-            'center_point[]' : f"{request_params[3]},{request_params[2]}",
+            'center_point[]' : f"{request_params[2]},{request_params[3]}",
             'distance[]' : f"{request_params[4]}",
             'isMapView': '1',
             'page' : '1'    
