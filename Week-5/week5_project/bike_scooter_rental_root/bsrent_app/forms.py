@@ -32,6 +32,8 @@ class AddAddress(forms.ModelForm):
         model = Address
         fields = '__all__'
 
+    
+
 
 class StartRental(forms.ModelForm):
 

@@ -9,6 +9,14 @@ from .forms import CustomerForm, StationForm, VehicleForm, AddAddress
 
 ############################### ADD FORMS ######################################
 
+
+def manage_database (request):
+    """main page, nothing to automate, see corresponding html"""
+    context = {}
+    return render(request, 'bsrent_app/manage_database.html', context)
+
+
+
 class AddVehicle(generic.CreateView):
 
     template_name = 'bsrent_app/add_vehicle.html'
@@ -64,6 +72,13 @@ class OneCustomer (generic.DetailView):
    
 
 ###################################### RENTALS  #####################################
+
+def rent (request):
+    """main page, nothing to automate, see corresponding html"""
+    context = {}
+    return render(request, 'bsrent_app/rent.html', context)
+
+
 
 def rentals (request):
     """main page, nothing to automate, see corresponding html"""
@@ -169,12 +184,7 @@ class OneVehicle(generic.DetailView):
 ######################UPDATE VIEWS###########################
 
 class StartRental(generic.UpdateView):
-    model=Rental
-    template_name = 'update_post.html'
-    model = Post
-    form_class = PostForm
-    success_url = reverse_lazy("posts-all")
-
+    pass
 
 
 class EndRental(generic.UpdateView):
