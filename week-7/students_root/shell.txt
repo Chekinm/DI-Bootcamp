@@ -1,0 +1,19 @@
+>>> requests.post('http://localhost:8000/students/', json={'id': 15, 'first_name': 'shellwrtwrt', 'last_name': 'shellertert', 'email': 'e@t.ru'})
+<Response [201]>
+>>> response = requests.get('http://localhost:8000/students/11')
+>>> print(response.json())
+{'details': 'Student not found!'}
+>>> response = requests.get('http://localhost:8000/students/12')
+>>> print(response.json())
+{'id': 12, 'first_name': 'shellwrtwrt', 'last_name': 'shellertert', 'email': 'e@t.ru', 'date_joined': '2023-05-07T21:19:31.833597Z'}
+>>> requests.put('http://localhost:8000/students/12',json={ 'first_name': '3333shellwrtwrt', 'last_name': '222shellertert', 'email': 'e2@t.ru'})
+<Response [202]>
+>>> response = requests.get('http://localhost:8000/students/12')
+>>> print(response.json())
+{'id': 12, 'first_name': '3333shellwrtwrt', 'last_name': '222shellertert', 'email': 'e2@t.ru', 'date_joined': '2023-05-07T21:19:31.833597Z'}
+>>> requests.delete('http://localhost:8000/students/12')
+<Response [202]>
+>>> response = requests.get('http://localhost:8000/students/12')
+>>> print(response.json())
+{'details': 'Student not found!'}
+>>>
