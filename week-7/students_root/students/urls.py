@@ -21,8 +21,8 @@ from students_app.views import StudentsList, StudentDetails
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/students_list/', StudentsList.as_view(), name ='students-list'),
-    path('api/students_list/<int:pk>', StudentDetails.as_view(), name ='student-details'),
+    path('students/', StudentsList.as_view(), name ='students-list'),
+    path('students/<int:pk>', StudentDetails.as_view(), name ='student-details'),
 
 
 ]
