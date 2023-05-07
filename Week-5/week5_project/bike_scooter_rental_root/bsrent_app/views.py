@@ -66,7 +66,7 @@ class OneCustomer (generic.DetailView):
         context = super().get_context_data(**kwargs)
         customer = self.get_object()
         rentals = customer.customer_rental.all()
-        context['retnals_open'] = rentals.filter(return_date__isnull=True).order_by('start_date')
+        context['rentals_open'] = rentals.filter(return_date__isnull=True).order_by('start_date')
         context['rentals_closed'] = rentals.filter(return_date__isnull=False).order_by('start_date')
         return context
    
