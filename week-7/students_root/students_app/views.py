@@ -16,7 +16,8 @@ from .models import Student
 # from .serializers import StudentSerializer
 from rest_framework.filters import BaseFilterBackend , SearchFilter, OrderingFilter
 
-from .mixins import StudentOperationsMixin
+from .mixins1 import StudentOperationsMixin
+
 
 
 
@@ -60,13 +61,21 @@ class StudentDetails(StudentOperationsMixin, GenericAPIView):
 
 class StudentsLookUp(StudentOperationsMixin,  GenericAPIView):
     
-    
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAdminUser,)
     def get_queryset(self):
+        
         return Student.objects.filter(date_joined = self.request.query_params['date_joined'])
 
-    def get(self, request, *args, **kwargs):   
+    def get(self, request, *args, **kwargs):               
         
+        return self.list(request, *args, **kwargs)
+    
+
+
+class StudentsLookUpGeneral(StudentOperationsMixin,  GenericAPIView):
+    permission_classes = (IsAdminUser,)
+    filterset_fields = ['date_joined']
+    def get(self, request, *args, **kwargs):  
         return self.list(request, *args, **kwargs)
 
 
