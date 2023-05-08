@@ -61,15 +61,6 @@ class StudentDetails(StudentOperationsMixin, GenericAPIView):
 class StudentsLookUp(StudentOperationsMixin,  GenericAPIView):
     
     
-    # inherited from StudentOperationsMixin 
-    #                           mixins.RetrieveModelMixin, 
-    #                           mixins.ListModelMixin, 
-    #                           mixins.CreateModelMixin,
-    #                           mixins.DestroyModelMixin,
-    #                           mixins.UpdateModelMixin
-    # # queryset =  Student.objects.all()
-    # serializer_class = StudentSerializer    
-
     permission_classes = (AllowAny,)
     def get_queryset(self):
         return Student.objects.filter(date_joined = self.request.query_params['date_joined'])
