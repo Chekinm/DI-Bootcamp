@@ -12,8 +12,10 @@ from rest_framework.status import (HTTP_200_OK,
                                    HTTP_400_BAD_REQUEST,
                                    HTTP_202_ACCEPTED,
                                    )
-#from .models import Student
+from .models import Student
 # from .serializers import StudentSerializer
+from rest_framework.filters import BaseFilterBackend , SearchFilter, OrderingFilter
+
 from .mixins import StudentOperationsMixin
 
 
@@ -55,6 +57,29 @@ class StudentDetails(StudentOperationsMixin, GenericAPIView):
         
         return self.update(request, *args, **kwargs)
     
+
+class StudentsLookUp(StudentOperationsMixin,  GenericAPIView):
+    
+    
+    # inherited from StudentOperationsMixin 
+    #                           mixins.RetrieveModelMixin, 
+    #                           mixins.ListModelMixin, 
+    #                           mixins.CreateModelMixin,
+    #                           mixins.DestroyModelMixin,
+    #                           mixins.UpdateModelMixin
+    # # queryset =  Student.objects.all()
+    # serializer_class = StudentSerializer    
+
+    permission_classes = (AllowAny,)
+    def get_queryset(self):
+        return Student.objects.filter(date_joined = self.request.query_params['date_joined'])
+
+    def get(self, request, *args, **kwargs):   
+        
+        return self.list(request, *args, **kwargs)
+
+
+
 
 # Create your views here.
 

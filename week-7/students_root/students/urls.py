@@ -16,13 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from students_app.views import StudentsList, StudentDetails
+from students_app.views import StudentsList, StudentDetails, StudentsLookUp
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('students/', StudentsList.as_view(), name ='students-list'),
     path('students/<int:pk>', StudentDetails.as_view(), name ='student-details'),
+    path('students_q/', StudentsLookUp.as_view(), name ='students-search'),
 
 
 ]

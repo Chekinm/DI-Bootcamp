@@ -7,6 +7,9 @@ class StudentOperationsMixin (mixins.RetrieveModelMixin,
                               mixins.ListModelMixin, 
                               mixins.CreateModelMixin,
                               mixins.DestroyModelMixin,
-                              mixins.UpdateModelMixin):
+                              mixins.UpdateModelMixin,
+                              ):
     queryset =  Student.objects.all()
     serializer_class = StudentSerializer
+
+
