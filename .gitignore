@@ -1,4 +1,4 @@
-*.pyc
+**/*.pyc
 Week-3/Day-3/XP-exercise/__pycache__/xp_exercise.cpython-311.pyc
 Week-4/Day-4/local_env/
 Week-3/Day-2/XP-ninja/feeld.json
@@ -11,16 +11,3 @@ Week-5/Day-1/django_env/
 Week-5/Day-1/.idea/
 Week-4/Day-4/local_env/
 Week-5/Day-1/animal-info/local_venv/
-Week-5/Day-1/xp-exercise/animal_project/manage.py
-Week-5/Day-1/xp-exercise/animal_project/animal_project/__init__.py
-Week-5/Day-1/xp-exercise/animal_project/animal_project/asgi.py
-Week-5/Day-1/xp-exercise/animal_project/animal_project/settings.py
-Week-5/Day-1/xp-exercise/animal_project/animal_project/urls.py
-Week-5/Day-1/xp-exercise/animal_project/animal_project/wsgi.py
-Week-5/Day-1/.idea/workspace.xml
-Week-4/Day-4/daily_challange/__pycache__/rest_countries.cpython-311.pyc
-Week-4/Day-4/__pycache__/menumanager.cpython-311.pyc
-Week-5/Day-1/xp-exercise/animal_project_root/animal_app/__pycache__/apps.cpython-311.pyc
-Week-5/Day-1/xp-exercise/animal_project_root/animal_app/__pycache__/data_classes.cpython-311.pyc
-Week-5/Day-1/xp-exercise/animal_project_root/animal_app/__pycache__/views.cpython-311.pyc
-hakaton1/__pycache__/botconfig.cpython-311.pyc
