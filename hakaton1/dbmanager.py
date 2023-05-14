@@ -2,10 +2,9 @@ import psycopg2
 from psycopg2 import sql
 from botconfig import DB_CONFIG
 
-    
+
 class DBconnect():
     """class to work with database"""
-
     """instance of class is a database, with connection as property"""
 
     def __init__(self, **DB_CONFIG):
@@ -22,12 +21,10 @@ class DBconnect():
             print (error)
 
 
-
     def run_change_query (self, query) -> bool: 
         """function runs change query, return True if change done 
         succesefully, otherwise return False
         inside it check if id already exist and update existing record with new values"""
-       
         try:
             with self.connection.cursor() as cursor:
                 cursor.execute(query)
@@ -53,9 +50,7 @@ class DBconnect():
         query = f"UPDATE request_data SET {query[0]}={query[1]}  WHERE telegram_id = '{user_id}'" 
         return self.run_change_query(query)
     
-
     async def get_request_data (self, user_id:str):
-    
         """get request datafrom DB by used_id""" 
         with self.connection.cursor() as cursor:
             query = sql.SQL("""SELECT * FROM request_data WHERE telegram_id = {0}""").format(sql.Literal(user_id))
@@ -63,18 +58,9 @@ class DBconnect():
             res = cursor.fetchall()
             return res[0] if res else []
     
-
     def _display_tables_names (self):
-    
         '''lookup for table names, not need outside''' 
         with self.connection.cursor() as cursor:
             cursor.execute("""SELECT table_name FROM information_schema.tables
             WHERE table_schema = 'public'""")
             return cursor.fetchall()
-        
-
-
-
-
-
-

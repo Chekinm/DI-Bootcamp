@@ -1,7 +1,6 @@
 from aiogram import Bot, Dispatcher, types, utils
 from aiogram.types import Message, Location, ReplyKeyboardMarkup, KeyboardButton
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-# from aiogram.types import 
 
 from botconfig import TOKEN_API, HELP_RESPONSE, DESCRIPTION, DB_CONFIG
 from api_yad2 import get_yad2_data
@@ -9,7 +8,7 @@ from dbmanager import DBconnect
 
 
 #initialize DB
-db= DBconnect(**DB_CONFIG)
+db = DBconnect(**DB_CONFIG)
 
 #initalize bot
 bot = Bot(token=TOKEN_API)
@@ -27,15 +26,15 @@ async def start(message: types.Message):
     await message.answer(HELP_RESPONSE)
 
 
-# this two function works with requested location
-# locatiion only send as ReplyKeyboardMarkup
+# this two functions work with requested location
+# locatiion only send can be send as ReplyKeyboardMarkup
 async def request_location(message: Message):
     button = KeyboardButton(text="Send location", request_location=True)
     markup = ReplyKeyboardMarkup(resize_keyboard=True).add(button)
     await message.answer("Please share your location:", reply_markup=markup)
 
 # parse location to coordinates
-# write it to database against user ID
+# write it to database with user ID
 async def get_location(message: Message):
     location = message.location
     latitude = location.latitude
@@ -59,12 +58,10 @@ async def radius(message: types.Message):
     ib = []
     for i in range(100, 2001, 100 ):
         ib.append(InlineKeyboardButton(text=f'{i}',
-                                  callback_data=i))
-    
+                                       callback_data=i))
     
     ikb = InlineKeyboardMarkup(row_width=5)
     ikb.add(*ib)
-            #ib1, ib2, ib3).add(ib4)
     await bot.send_message(chat_id=message.from_user.id,
                             text='Select radius around you to search',
                             reply_markup=ikb)
@@ -79,7 +76,6 @@ async def maxarea(message: types.Message):
     
     ikb = InlineKeyboardMarkup(row_width=5)
     ikb.add(*ib)
-            #ib1, ib2, ib3).add(ib4)
     await bot.send_message(chat_id=message.from_user.id,
                             text='Select maximum area of the flat',
                             reply_markup=ikb)
@@ -94,7 +90,6 @@ async def minarea(message: types.Message):
     
     ikb = InlineKeyboardMarkup(row_width=5)
     ikb.add(*ib)
-            #ib1, ib2, ib3).add(ib4)
     await bot.send_message(chat_id=message.from_user.id,
                             text='Select minimum area of the flat',
                             reply_markup=ikb)
@@ -110,7 +105,6 @@ async def balcony(message: types.Message):
     
     ikb = InlineKeyboardMarkup(row_width=5)
     ikb.add(*ib)
-            #ib1, ib2, ib3).add(ib4)
     await bot.send_message(chat_id=message.from_user.id,
                             text='Do you wanna a balcony',
                             reply_markup=ikb)
@@ -148,8 +142,7 @@ async def callback_handler(callback: types.CallbackQuery):
 @dp.message_handler(content_types=['location'])
 async def handle_location(message: types.Message):
     await get_location(message)
-    # await set_new_gps(location, message.from_user.id)
-    
+  
 
 @dp.message_handler(commands=['get'])
 async def get(message: types.Message):
@@ -161,7 +154,7 @@ async def get(message: types.Message):
     resp_dict = await get_yad2_data(request_config)
     ind = 0
     while ind < 6 and ind < len(resp_dict['feed']["feed_items"]): 
-        # get 6 flats, probably good idea to add this control to configuration as it user preference
+        # FIXME get 6 flats, probably good idea to add this control to configuration as it user preference
         try:
             url = f"https://www.yad2.co.il/item/{resp_dict['feed']['feed_items'][ind]['link_token']}"
             rooms =f"{resp_dict['feed']['feed_items'][ind]['row_4'][0]['value']} rooms'"

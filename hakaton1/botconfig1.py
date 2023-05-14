@@ -5,8 +5,6 @@ DB_CONFIG = {'host': 'localhost',
             'dbname': 'hackaton_db',
             }
 
-
-
 HELP_RESPONSE = """ 
 /start - start working with the bot
 /help - this text
@@ -23,12 +21,6 @@ This is a bot which helps you to
 finds a flat to rent. 
 It search yad2 relevant flats  around your current postions.
 """
-
-
-
-
-
-
 
 # TELEGRAM BOT CONFIG
 
