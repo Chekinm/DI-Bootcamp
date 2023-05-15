@@ -10,7 +10,7 @@ class DepartmentOperationsMixin (ListModelMixin, CreateModelMixin,RetrieveModelM
     serializer_class = DepartmentSerializer
 
 
-class EmployeeOperationsMixin (ListModelMixin, CreateModelMixin,RetrieveModelMixin):
+class EmployeeOperationsMixin (ListModelMixin, CreateModelMixin,RetrieveModelMixin,UpdateModelMixin):
     queryset =  Employee.objects.all()
     serializer_class = EmployeeSerializer
 

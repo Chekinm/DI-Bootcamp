@@ -2,14 +2,16 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('employees', EmployeesView.as_view(), name='employees'), 
-    path('employees/<int:pk>', EmployeeDetailedView.as_view(), name='employee-detailed'), 
-    path('employees/<int:pk>', EmployeeDetailedView.as_view(), name='user-detail'), 
-    path('departments', DepartmentsView.as_view(), name='departments'), 
-    path('departments/<int:pk>', DepartmentDetailedView.as_view(), name='department-detailed'), 
-    path('tasks', TasksView.as_view(), name='tasks'), 
-    path('tasks/<int:pk>', TaskDetailedView.as_view(), name='task-detailed'), 
-    path('projects', ProjectsView.as_view(), name='projects'),
-    path('projects/<int:pk>', ProjectDetailedView.as_view(), name='project-detailed'),
+    path('employees', EmployeesViewSet.as_view({'get':'list', 'post':'create'}), name='employees'), 
+    path('employees/<int:pk>', EmployeeDetailedViewSet.as_view({'get':'retrieve', 'put':'update'}), name='employee-detailed'), 
+
+    path('departments', DepartmentsViewSet.as_view({'get':'list', 'post':'create'}), name='departments'), 
+    path('departments/<int:pk>', DepartmentDetailedViewSet.as_view({'get':'retrieve', 'put':'update'}), name='department-detailed'), 
+    
+    path('tasks', TasksViewSet.as_view({'get':'list', 'post':'create'}), name='tasks'), 
+    path('tasks/<int:pk>', TaskDetailedViewSet.as_view({'get':'retrieve', 'delete':'destroy','put':'update'}), name='task-detailed'), 
+    
+    path('projects', ProjectsViewSet.as_view({'get':'list', 'post':'create'}), name='projects'),
+    path('projects/<int:pk>', ProjectDetailedViewSet.as_view({'get':'retrieve', 'delete':'destroy','put':'update'}), name='project-detailed'),
 ]
 

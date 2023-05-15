@@ -5,6 +5,7 @@ class EmployeeSerializer(serializers.HyperlinkedModelSerializer):
     url = serializers.HyperlinkedIdentityField(view_name='employee-detailed' )
     deparment = serializers.HyperlinkedIdentityField(view_name='department-detailed')
     project = serializers.HyperlinkedIdentityField(view_name='project-detailed',many=True)
+    user = serializers.HyperlinkedIdentityField(view_name='employee-detailed')
     class Meta:
         model = Employee
         fields = '__all__'
