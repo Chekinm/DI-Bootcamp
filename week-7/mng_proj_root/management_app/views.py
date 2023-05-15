@@ -10,24 +10,22 @@ from .app_mixin import EmployeeOperationsMixin, DepartmentOperationsMixin
 from .app_mixin import ProjectOperationsMixin, TaskOperationsMixin
 from rest_framework.permissions import AllowAny, IsAdminUser
 from .permissions import IsDepartmentAdmin
+from rest_framework import permissions
 
 class EmployeesView (EmployeeOperationsMixin, GenericAPIView):
 
-    #permission_classes = [IsDepartmentAdmin,]
+    permission_classes = [IsDepartmentAdmin,]
   
-    
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
-        
-
-    def post(self, request, *args, **kwargs):
+          
+    def post(self, request, *args, **kwargs):    
         return self.create(request, *args, **kwargs)
 
 class EmployeeDetailedView (EmployeeOperationsMixin, GenericAPIView):
 
-    #permission_classes = [IsDepartmentAdmin,]
-  
-    
+    permission_classes = [IsDepartmentAdmin,]
+      
     def get(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
         
