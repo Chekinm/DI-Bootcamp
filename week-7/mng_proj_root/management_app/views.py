@@ -25,7 +25,7 @@ class EmployeesView (EmployeeOperationsMixin, GenericAPIView):
 
 class DepartmentsView (DepartmentOperationsMixin, GenericAPIView):
 
-    permission_classes = (IsAdminUser,)
+    permission_classes = (IsDepartmentAdmin,)
     
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
@@ -36,13 +36,21 @@ class DepartmentsView (DepartmentOperationsMixin, GenericAPIView):
 
 class TasksView (TaskOperationsMixin, GenericAPIView):
 
-    permission_classes = (IsDepartmentAdmin,)
+    permission_classes = (AllowAny,)
     
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
+    
+
+class TaskView (TaskOperationsMixin, GenericAPIView):
+
+    permission_classes = (AllowAny,)
+    
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
 
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
@@ -60,6 +68,13 @@ class ProjectsView (ProjectOperationsMixin, GenericAPIView):
 
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
+    
+class ProjectView (ProjectOperationsMixin, GenericAPIView):
+
+    permission_classes = (AllowAny,)
+    
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
 
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)

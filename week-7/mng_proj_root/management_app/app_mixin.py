@@ -15,14 +15,14 @@ class EmployeeOperationsMixin (ListModelMixin, CreateModelMixin):
     serializer_class = EmployeeSerializer
 
 
-class TaskOperationsMixin (ListModelMixin, CreateModelMixin, 
+class TaskOperationsMixin (ListModelMixin, CreateModelMixin, RetrieveModelMixin,
                            UpdateModelMixin, DestroyModelMixin):
                                 
     queryset =  Task.objects.all()
     serializer_class = TaskSerializer
 
 
-class ProjectOperationsMixin (ListModelMixin, CreateModelMixin, 
+class ProjectOperationsMixin (ListModelMixin, CreateModelMixin, RetrieveModelMixin,
                             UpdateModelMixin, DestroyModelMixin):
     queryset =  Project.objects.all()
     serializer_class = ProjectSerializer
