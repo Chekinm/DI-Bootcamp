@@ -1,0 +1,22 @@
+{%- macro name_of_the_macro(just_arg_of_our_macro) -%}
+    <ul>
+        {%- for some_instance in just_arg_of_our_macro -%}
+            <li> Model - name {{some_instance.model}} 
+                {# here we call code which writen inside call block and pass there some_instance as arg#}
+                {{caller(some_instance)}} 
+            </li>
+        {%- endfor %}
+    </ul>  
+{%- endmacro -%}
+
+
+{% call(arg_will_be_used_in_call_block) name_of_the_macro(context_variable_from_render)%}
+    <ul> {%- for key, value in arg_will_be_used_in_call_block.items() -%}
+        <li> 
+            {{key}} - {{value}}
+        </li>
+    {%- endfor %}</ul>
+{% endcall %} 
+
+ 
+

@@ -1,0 +1,22 @@
+{% macro car_detail(car_as_dict)%}
+    <ul> {%- for key, value in car_as_dict.items() -%}
+        <li> 
+            {{key}} - {{value}}
+        </li>
+    {%- endfor %}</ul>
+{% endmacro %} 
+
+{%- macro carlist(cars_from_render) -%}
+    <ul>
+        {%- for car1 in cars_from_render -%}
+            <li> Model - name {{car1.mod}} 
+                here we just call another macro and pass there car1 as arg
+                {{car_detail(car1)}}
+            </li>
+        {%- endfor %}
+    </ul>  
+{%- endmacro -%}
+
+ 
+
+{{carlist(c)}}
