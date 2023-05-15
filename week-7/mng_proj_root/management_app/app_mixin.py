@@ -5,12 +5,12 @@ from .serializers import TaskSerializer, ProjectSerializer
 from rest_framework.mixins import CreateModelMixin, ListModelMixin, RetrieveModelMixin
 from rest_framework.mixins import UpdateModelMixin, DestroyModelMixin
 
-class DepartmentOperationsMixin (ListModelMixin, CreateModelMixin):
+class DepartmentOperationsMixin (ListModelMixin, CreateModelMixin,RetrieveModelMixin, UpdateModelMixin):
     queryset =  Department.objects.all()
     serializer_class = DepartmentSerializer
 
 
-class EmployeeOperationsMixin (ListModelMixin, CreateModelMixin):
+class EmployeeOperationsMixin (ListModelMixin, CreateModelMixin,RetrieveModelMixin):
     queryset =  Employee.objects.all()
     serializer_class = EmployeeSerializer
 

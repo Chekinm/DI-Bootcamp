@@ -13,7 +13,7 @@ from .permissions import IsDepartmentAdmin
 
 class EmployeesView (EmployeeOperationsMixin, GenericAPIView):
 
-    permission_classes = [IsDepartmentAdmin,]
+    #permission_classes = [IsDepartmentAdmin,]
   
     
     def get(self, request, *args, **kwargs):
@@ -22,6 +22,18 @@ class EmployeesView (EmployeeOperationsMixin, GenericAPIView):
 
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
+
+class EmployeeDetailedView (EmployeeOperationsMixin, GenericAPIView):
+
+    #permission_classes = [IsDepartmentAdmin,]
+  
+    
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+        
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
 
 class DepartmentsView (DepartmentOperationsMixin, GenericAPIView):
 
@@ -32,6 +44,17 @@ class DepartmentsView (DepartmentOperationsMixin, GenericAPIView):
 
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
+    
+class DepartmentDetailedView (DepartmentOperationsMixin, GenericAPIView):
+
+    permission_classes = (IsDepartmentAdmin,)
+    
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+    
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
    
 
 class TasksView (TaskOperationsMixin, GenericAPIView):
@@ -45,7 +68,7 @@ class TasksView (TaskOperationsMixin, GenericAPIView):
         return self.create(request, *args, **kwargs)
     
 
-class TaskView (TaskOperationsMixin, GenericAPIView):
+class TaskDetailedView (TaskOperationsMixin, GenericAPIView):
 
     permission_classes = (AllowAny,)
     
@@ -69,7 +92,7 @@ class ProjectsView (ProjectOperationsMixin, GenericAPIView):
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
     
-class ProjectView (ProjectOperationsMixin, GenericAPIView):
+class ProjectDetailedView (ProjectOperationsMixin, GenericAPIView):
 
     permission_classes = (AllowAny,)
     
