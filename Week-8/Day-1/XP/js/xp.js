@@ -97,8 +97,6 @@ function myColorIterFunction(item, index) {
 }
 colours.forEach(myColorIterFunction);
 
-
-
 // 🌟 Exercise 3 : Repeat The Question
 // Instructions
 // Prompt the user for a number.
@@ -108,23 +106,40 @@ colours.forEach(myColorIterFunction);
 // Tip : Which while loop is more relevant for this situation?
 
 
+
+// let num = 0
+// while (true) {
+//     num = prompt('Enter number')
+//     console.log(num<10)
+//     if (isNaN(num)) alert('This is not a number! Try again');    
+//     else if (num<10) alert('Too small, try again');
+//     else {
+//         alert (`You've entered ${num}, it is greateh than 10. Congrats. We stops!`);
+//         console.log('This on is good');
+//         break
+//         }
+//     }
+    
+
+
 // 🌟 Exercise 4 : Building Management
 // Instructions:
-// const building = {
-//     numberOfFloors: 4,
-//     numberOfAptByFloor: {
-//         firstFloor: 3,
-//         secondFloor: 4,
-//         thirdFloor: 9,
-//         fourthFloor: 2,
-//     },
-//     nameOfTenants: ["Sarah", "Dan", "David"],
-//     numberOfRoomsAndRent:  {
-//         sarah: [3, 990],
-//         dan:  [4, 1000],
-//         david: [1, 500],
-//     },
-// }
+
+const building = {
+    numberOfFloors: 4,
+    numberOfAptByFloor: {
+                        firstFloor: 3,
+                        secondFloor: 4,
+                        thirdFloor: 9,
+                        fourthFloor: 2,
+                        },
+    nameOfTenants: ["Sarah", "Dan", "David"],
+    numberOfRoomsAndRent:  {
+                        sarah: [3, 990],
+                        dan:  [4, 1000],
+                        david: [1, 500],
+                        },
+    }
 
 
 // Review About Objects
@@ -132,12 +147,33 @@ colours.forEach(myColorIterFunction);
 
 // Console.log the number of floors in the building.
 
+console.log('NUmber of floor is -', building.numberOfFloors)
+
 // Console.log how many apartments are on the floors 1 and 3.
+
+for (floor in building.numberOfAptByFloor) {
+    if (floor == 'firstFloor' || floor == 'thirdFloor') {
+        console.log(`There are ${building.numberOfAptByFloor[floor]} flats on the ${floor}`)
+        }   
+    }
 
 // Console.log the name of the second tenant and the number of rooms he has in his apartment.
 
+let persName = building.nameOfTenants[1]
+let pers = persName.toLowerCase()
+let numOfRooms = building.numberOfRoomsAndRent[pers][0]
+console.log(`${persName} has ${numOfRooms} rooms in his flat.`)
+
 // Check if the sum of Sarah’s and David’s rent is bigger than Dan’s rent. If it is, than increase Dan’s rent to 1200.
 
+function persRent (name) {
+    return building.numberOfRoomsAndRent[name.toLowerCase()]
+}
+
+if (persRent('Sarah')[1]+persRent('David')[1] > persRent('Dan')[1]) {
+    persRent('Dan')[1] = 1200
+} 
+console.log(persRent('Dan'))
 
 // 🌟 Exercise 5 : Family
 // Instructions
@@ -145,20 +181,44 @@ colours.forEach(myColorIterFunction);
 // Using a for in loop, console.log the keys of the object.
 // Using a for in loop, console.log the values of the object.
 
+let family = {
+    papa: 'Mike',
+    mama: 'Kate',
+    son1: 'Theodor',
+    son2: 'Nikita',
+    daughter: 'Uliana'
+}
+
+for (pers in family) {
+    console.log(`${pers} - ${family[pers]}`)
+}
 
 // Exercise 6 : Rudolf
 // Instructions
-// const details = {
-//   my: 'name',
-//   is: 'Rudolf',
-//   the: 'raindeer'
-// }
+const details = {
+  my: 'name',
+  is: 'Rudolf',
+  the: 'raindeer'
+}
 // Given the object above and using a for loop, console.log “my name is Rudolf the raindeer”
-
+text = ''
+for (wtf in details) {
+    text += `${wtf} ${details[wtf]} `
+}
+console.log(text)
 
 // Exercise 7 : Secret Group
 // Instructions
-// const names = ["Jack", "Philip", "Sarah", "Amanda", "Bernard", "Kyle"];
-// A group of friends have decided to start a secret society. The society’s name will be the first letter of each of their names sorted in alphabetical order.
+const names = ["Jack", "Philip", "Sarah", "Amanda", "Bernard", "Kyle"];
+// A group of friends have decided to start a secret society. 
+// society’s name will be the first letter of each of their names sorted in 
+// alphabetical order.
 // Hint: a string is an array of letters
-// Console.log the name of their secret society. The output should be “ABJKPS”
+// Console.log the name of their secret society. The output should be 
+
+names.sort()
+answ = []
+for (firstName of names) {
+    answ.push(firstName[0])
+}
+console.log(answ.join(''))
