@@ -22,4 +22,21 @@ while (true) {
 
 console.log(sentence)
 
+let numOfBranch = 6
+let width = (numOfBranch*2)**2  + 3 
 
+function buildDrawLine(size, numOfStar) {
+    let drawLine = []
+    for (let j=0; j < size; j++) {
+        let curSim = (j >= (size - numOfStar)/2 &&  j < (size + numOfStar)/2) ? '*':' '
+        drawLine.push(curSim)
+        }
+    return drawLine.join('')
+    }
+
+for (let n=2; n < numOfBranch * 2; n+=2) {
+    for (let k=1; k<=3 + n*n ; k += n+2){
+        drawLine = buildDrawLine(width,k)
+        console.log(drawLine)
+        }
+   }
