@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}{{ method }} {{ item }}{% endblock title %}
+
+{% block content %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type='submit'>{{ method }}</button>
+    </form>
+
+{% endblock content %}

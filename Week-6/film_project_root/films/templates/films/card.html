@@ -1,0 +1,46 @@
+{% load static %}
+<div class="col">
+<div class="card py-0" style="width: 18rem;">
+    <img src="https://m.media-amazon.com/images/I/81Z+lBcAYWL._AC_UF894,1000_QL80_.jpg" class="card-img-top" alt="film_tumb" Height=320 width=60>
+        
+    <div class="card-body ">
+      <h5 class="card-title py-0">{{ film.title }}</h5>
+      <p class="card-text py-0">{{ film.release_date }}</p>
+    </div>
+    <div class="card" style="width: 18rem; py-0">
+        <div class="card-header py-0">
+          Category
+        </div>
+        <ul class="list-group list-group-horizontal">
+        {% for cat in film.category.all %}
+          <li class="list-group-item ms-4 py-0">{{ cat}}</li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-header py-0">
+          Country avialable
+        </div>
+        <ul class="list-group list-group-horizontal py-0">
+        {% for country in film.available_in_countries.all %}
+          <li class="list-group-item ms-4 py-0">{{ country }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-header py-0">
+          Directors:
+        </div>
+        <ul class="list-group list-group-flush py-0">
+        {% for director in film.director.all %}
+            <li class="list-group-item ms-4 py-0"><a href="{% url 'update_director' director.id %}" >{{ director }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div class="card-body">
+      <a href="{% url 'update_film' film.id %}" class="card-link">Update film</a>
+    </div>
+  </div>
+</div>
+
+  
