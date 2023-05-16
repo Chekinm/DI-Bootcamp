@@ -22,6 +22,9 @@ while (true) {
 
 console.log(sentence)
 
+// ---------------DC gold -------------------------
+
+
 let numOfBranch = 6
 let width = (numOfBranch*2)**2  + 3 
 
