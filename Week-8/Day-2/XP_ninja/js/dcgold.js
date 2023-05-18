@@ -105,7 +105,7 @@ console.log(maxFromArr([1,2,3,'a',[1,2],{a:4},'55']))
 //----------------------ex6------------------
 
 function uniqueFromArr(arr) {
-    // trivial varian
+    // trivial variant
     return Array.from(new Set(arr))
     
     
@@ -135,3 +135,87 @@ console.log(uniqueFromArr([]));
 console.log(uniqueFromArr([1]));
 console.log(uniqueFromArr([b,a,c]))
 console.log(uniqueFromArr([1,1,2,2,3,4,5,6,6,1]));
+
+
+//fron Ziv
+
+function getUniqueElements(arr) {
+    const uniqueElements = [];
+  
+    // Helper function to check if two arrays are deeply equal
+    function deepArrayEquals(a, b) {
+      if (a === b) return true;
+      if (a.length !== b.length) return false;
+  
+      for (let i = 0; i < a.length; i++) {
+        if (!deepEquals(a[i], b[i])) return false;
+      }
+  
+      return true;
+    }
+  
+    // Helper function to check if two objects are deeply equal
+    function deepObjectEquals(a, b) {
+      if (a === b) return true;
+  
+      const keysA = Object.keys(a);
+      const keysB = Object.keys(b);
+  
+      if (keysA.length !== keysB.length) return false;
+  
+      for (let key of keysA) {
+        if (!deepEquals(a[key], b[key])) return false;
+      }
+  
+      return true;
+    }
+  
+    // Helper function to check if two values are deeply equal
+    function deepEquals(a, b) {
+      if (Array.isArray(a) && Array.isArray(b)) {
+        return deepArrayEquals(a, b);
+      }
+  
+      if (typeof a === 'object' && typeof b === 'object') {
+        return deepObjectEquals(a, b);
+      }
+  
+      return a === b;
+    }
+  
+    // Iterate over the input array
+
+    for (let i = 0; i < arr.length; i++) {
+      let isUnique = true;
+  
+      // Check if the element is already in the uniqueElements array
+      for (let j = 0; j < uniqueElements.length; j++) {
+        if (deepEquals(arr[i], uniqueElements[j])) {
+          isUnique = false;
+          break;
+        }
+      }
+  
+      // If the element is unique, add it to the uniqueElements array
+      if (isUnique) {
+        uniqueElements.push(arr[i]);
+      }
+    }
+  
+    return uniqueElements;
+  }
+  
+  // Example usage
+  const inputArray = [
+    1,
+    'Hello',
+    [1, 2, 3],
+    [1, 2, 3], // Duplicate array
+    { name: 'John', age: 25 },
+    { name: 'John', age: 25 }, // Duplicate object
+    1, // Duplicate primitive
+    'Hello', // Duplicate primitive
+  ];
+  
+  const uniqueArray = getUniqueElements(inputArray);
+  console.log(uniqueArray);
