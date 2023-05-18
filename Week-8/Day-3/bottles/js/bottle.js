@@ -3,6 +3,9 @@ function isIntOneTo99(value) {
 }
 
 function getUserInput(text, checkFunction) {
+    let audio = document.getElementById("audio");
+    audio.volume = 0.3;
+    audio.play();
     let input
     do {
         input = prompt (text);
@@ -10,6 +13,8 @@ function getUserInput(text, checkFunction) {
         if (!flag) alert('Wrong input') ;
     } while (!flag);
     console.log(input)
+
+
     return input;
 }
 
@@ -29,7 +34,7 @@ function setText(numbOfButtle,toDrink) {
 }
 
 function sayText(text) {
-    var u = new SpeechSynthesisUtterance();
+    let u = new SpeechSynthesisUtterance();
     u.text = text;
     u.lang = 'en-US';
     u.rate = 1.2;
@@ -41,6 +46,9 @@ function sayText(text) {
 function singASong() {
 
     let numbOfButtle = getUserInput ("How many buttle we have? ", isIntOneTo99)
+    
+    setTimeout(console.log(numbOfButtle), 7000);
+
     toDrink = 1
     let response
     do  {
@@ -52,7 +60,8 @@ function singASong() {
     } while (response.flag)
 }
     
-audio = document.getElementById("audio");
-audio.volume = 0.3;
+
+
+
 
 
