@@ -52,5 +52,7 @@ function singASong() {
     } while (response.flag)
 }
     
+audio = document.getElementById("audio");
+audio.volume = 0.3;
 
 
