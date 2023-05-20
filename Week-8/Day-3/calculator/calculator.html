@@ -1,37 +1,64 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-      button {
+      .btn {
         width:70px;
         height:70px;
+        margin-bottom: 3px;
+        font-size: x-large;
+        background-color:slategray;
+      }
+
+      .equal {
+        width: 145px;
+      }
+      textarea{
+        width: 285px;
+        font-size:xx-large;
       }
     </style>
   </head>
   <body>
-    <button type="button" name="button" onclick="number(1);">1</button>
-    <button type="button" name="button" onclick="number(2);">2</button>
-    <button type="button" name="button" onclick="number(3);">3</button>
+    <textarea class="form-control w-285px" id="result"></textarea>
     <br>
-    <button type="button" name="button" onclick="number(4);">4</button>
-    <button type="button" name="button" onclick="number(5);">5</button>
-    <button type="button" name="button" onclick="number(6);">6</button>
-    <br>
-    <button type="button" name="button" onclick="number(7);">7</button>
-    <button type="button" name="button" onclick="number(8);">8</button>
-    <button type="button" name="button" onclick="number(9);">9</button>
-    <button type="button" name="button" onclick="number(0);">0</button>
-    <br>
-    <button type="button" name="button" onclick="operator('+');">+</button>
-    <button type="button" name="button" onclick="operator('-');">-</button>
-    <button type="button" name="button" onclick="operator('*');">*</button>
-    <button type="button" name="button" onclick="operator('/');">/</button>
-    <button type="button" name="button" onclick="equal();">=</button>
+    <button class="btn" type="button" name="button" onclick="number(1);">1</button>
+    <button class="btn" type="button" name="button" onclick="number(2);">2</button>
+    <button class="btn" type="button" name="button" onclick="number(3);">3</button>
+    <button class="btn" type="button" name="button" onclick="operator('+');">+</button>
     
-    <textarea id="result"> 4 </textarea>
+
+    <br>
+    <button class="btn" type="button" name="button" onclick="number(4);">4</button>
+    <button class="btn" type="button" name="button" onclick="number(5);">5</button>
+    <button class="btn" type="button" name="button" onclick="number(6);">6</button>
+    <button class="btn" type="button" name="button" onclick="operator('-');">-</button>
+    
+    <br>
+    <button class="btn" type="button" name="button" onclick="number(7);">7</button>
+    <button class="btn" type="button" name="button" onclick="number(8);">8</button>
+    <button class="btn" type="button" name="button" onclick="number(9);">9</button>
+   
+    <button class="btn" type="button" name="button" onclick="operator('*');">*</button>
+  
+    
+    <br>
+    <button class="btn" type="button" name="button" onclick="operator('.');">.</button>
+    <button class="btn" type="button" name="button" onclick="number(0);">0</button>
+    <button class="btn" type="button" name="button" onclick="brackets();">()</button>
+ 
+    <button class="btn" type="button" name="button" onclick="operator('/');">/</button>
+    
+    <br>
+    <button class="btn" type="button" name="button" onclick="bs();">BS</button>
+    <button class="btn" type="button" name="button" onclick="c();">C</button>
+    <button class="btn equal" type="button" name="button" onclick="equal();">=</button>
+
+   
     
     <script src="js/calculator.js" charset="utf-8"></script>
 
