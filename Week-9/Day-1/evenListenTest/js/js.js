@@ -21,3 +21,16 @@ function insertRow() {
     
     console.log(num)
 }
+
+function insertText() {
+
+    let div1 = document.getElementById("test1")
+    let div2 = document.getElementById("test2")
+    
+    let newText1 = document.createTextNode('This to be added to Test1');
+    
+    
+    div1.appendChild(newText1)
+    div2.innerText = "This is text to be add to test2"
+    console.log(div1)
+}
