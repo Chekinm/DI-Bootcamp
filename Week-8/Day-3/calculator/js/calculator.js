@@ -66,6 +66,7 @@ function brackets() {
 
 function equal() {
     while (bracketStack.length) {
+        
         result.textContent += ")"
         bracketStack.pop()
     } 
@@ -103,4 +104,14 @@ function bs() {
     } 
     result.textContent = result.textContent.slice(0,result.textContent.length-1)
     console.log(result.textContent)
+}
+
+
+function keyPressed(e) {
+    key = e.code
+    console.log(key)
+    console.log(key.slice(-1), key.startsWith('Numpad'))
+    if (key.startsWith('Numpad')) {
+        number(key.slice(-1))
+}
 }
