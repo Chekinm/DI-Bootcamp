@@ -13,7 +13,8 @@ function number(value) {
 
 
 function operator (operation) {
-    regex = /\d+|\)+$/
+    regex = /[\d\)]$/
+    console.log(regex.test(result.textContent))
     if (regex.test(result.textContent)) {
         
     
@@ -65,19 +66,28 @@ function brackets() {
 }
 
 function equal() {
-    while (bracketStack.length) {
-        
-        result.textContent += ")"
-        bracketStack.pop()
-    } 
-
-    res = eval(result.textContent)
-    if (res==Infinity) {
-        alert("MathError(result)")
-        result.textContent = "Error. Press C"
-    } else {
-        result.textContent = res
+    let regex =/[\+\-\/\*]$/
+    if (!regex.test(result.textContent)){ 
+        // check if last simbol is not an operator
+        // if not close all opened brackets
+        while (bracketStack.length) {
+            result.textContent += ")"
+            bracketStack.pop()
+        } 
     }
+    let res;
+    try {
+        res = eval(result.textContent)
+        if (res==Infinity) {
+            alert("MathError(result)")
+            result.textContent = "Error. Press C"
+        } else {
+            result.textContent = res
+        }
+    } catch (SyntaxError) {
+        alert ("Fihish your input!")
+    }
+    
 }
 
 
