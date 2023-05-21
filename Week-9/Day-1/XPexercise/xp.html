@@ -8,9 +8,9 @@
 </head>
 <body>
     <article>
-        <h1> Some Facts </h1>
-        <h2> The Chocolate </h2>
-        <h3> History of the chocolate </h3>
+        <h1 onmouseover="rndFont(event)"> Some Facts </h1>
+        <h2 class="myClass" onmouseover="fadeOut(event)" onclick="setBgRed(event)" > The Chocolate </h2>
+        <h3 onclick="setHidden(event)"> History of the chocolate </h3>
         <p> Chocolate is made from tropical Theobroma cacao tree seeds. 
         Its earliest use dates back to the Olmec civilization in Mesoamerica.</p>
         <p> After the European discovery of the Americas, chocolate became 
@@ -19,7 +19,7 @@
         thanks to its unique, rich, and sweet taste.</p> 
         <p> But what effect does eating chocolate have on our health?</p> 
     </article>
-
+    <button onclick=SetBold()>Make it <strong>Bold</strong></button>
 
     <script src="js/xp1.js"></script>
 </body>
