@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+        #container {
+          width: 400px;
+          height: 400px;
+          position: relative;
+          background: green;
+        }
+        #movingbox {
+          width: 50px;
+          height: 50px;
+          left: 175px;
+          top: 175px;
+          position: absolute;
+          background-color: yellow;
+        }
+        </style>
+    </head>
+    <body>
+        
+        <div id="container">
+          <div id="movingbox" onclick="rndColor(event)" oncontextmenu="colorYellow(event)" onmouseover="makeBig(event)" onmouseout="makeSmall(event)"></div>
+        </div>
+
+    
+    <script src="js/xp5.js"></script>
+    
+    </body>
+    </html>
