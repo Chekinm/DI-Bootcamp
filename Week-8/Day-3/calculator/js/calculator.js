@@ -78,7 +78,8 @@ function equal() {
     let res;
     try {
         res = eval(result.textContent)
-        if (res==Infinity) {
+        if (Math.abs(res)==Infinity || res !=res) {
+            //ask me what res!=res means, that is interesting
             alert("MathError(result)")
             result.textContent = "Error. Press C"
         } else {
@@ -90,14 +91,7 @@ function equal() {
     
 }
 
-
-// function isValid(value) {
-//     res = /^[\d()]+(?:[+*\/\./-][\d()]+)+$/.test(value)
-//     console.log(res)
-//     return res
-// }
-
-function c () {
+function c() {
     result.textContent = ''
     bracketStack = []
 }
