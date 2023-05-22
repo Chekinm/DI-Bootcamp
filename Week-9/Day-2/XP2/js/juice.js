@@ -48,10 +48,7 @@ makeJuice('small')
 
 
 
-
-
-
-//part II
+//part II.2     --------------The way I'd like to do it.-----------------
 
 
 // function makeJuice (size) {
@@ -90,8 +87,8 @@ makeJuice('small')
 
 
 
-//The way I'd like to do it.
-// // part I
+
+// // part I.2
 
 // function makeJuice (size) {
 
