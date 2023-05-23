@@ -1,7 +1,3 @@
-let arr22 = [NaN, 0, 15, false, -22, '',undefined, 47, null]
-
-
-
 // ex1 sum
 let arr1 = [1,2,3,5,6,6,8,9,12,45]
 
@@ -34,7 +30,8 @@ console.log(arr3)
 
 let arr4 = [NaN, 0, 15, false, -22, '',undefined, 47, null]
 
-console.log(arr4.filter(item=>Boolean(item)));
+console.log(arr4.filter((e)=>e))
+    //item=>Boolean(item)));
 
 
 //4 repeat
