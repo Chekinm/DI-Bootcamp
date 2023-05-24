@@ -34,13 +34,15 @@ class Counter {
     }
   }
   
-  const counterOne = new Counter(); // counterOne.count = 0
-  counterOne.increment(); // counterOne.count = 1
-  counterOne.increment(); // counterOne.count = 2
-  
-  const counterTwo = counterOne; // i'm not sure, but since class is an object
-  // and count is just a properties. And we don't run a new which invoke constructer
-  // it shoudl be one and the same object so 
-  counterTwo.increment(); //  counterTwo.count = 3 , as well as 
-  
-  console.log(counterOne.count); //counterTwo.count = 3
+const counterOne = new Counter(); // counterOne.count = 0
+counterOne.increment(); // counterOne.count = 1
+counterOne.increment(); // counterOne.count = 2
+
+const counterTwo = counterOne; // i'm not sure, but since class is an object
+// and count is just a properties. And we don't run a new which invoke constructer
+// it shoudl be one and the same object so 
+counterTwo.increment(); //  counterTwo.count = 3 , as well as 
+
+console.log(counterOne.count); //counterTwo.count = 3
+
+
