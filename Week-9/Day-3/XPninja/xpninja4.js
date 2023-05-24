@@ -1,27 +1,27 @@
 const letters = ['x', 'y', 'z', 'z'];
-
-let dict = {}
+let letter;
+let dict ={};
 for (letter of letters) {
     if (letter in dict) {
-        dict[letter] +=1
+        dict[letter] +=1;
     } else {
-        dict[letter] = 1
-    }
+        dict[letter] = 1;
+    };
 
 }
-console.log(dict)
+console.log(dict);
 
 
 let dictR = letters.reduce((dict, letter) => {
         if (letter in dict) {
-            dict[letter] +=1 
+            dict[letter] +=1; 
         } else {
-            dict[letter] = 1
+            dict[letter] = 1;
         }
-        return dict
-        },{})
+        return dict;
+        },{});
 
-console.log(dictR)
+console.log(dictR);
 
 
 
