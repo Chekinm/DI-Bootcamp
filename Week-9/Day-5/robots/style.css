@@ -1,0 +1,18 @@
+body { 
+    font-family: 'SEGA LOGO FONT', sans-serif; 
+    background-color: rgb(129, 173, 250);
+    background-image: url("circuit-pattern.png")
+}
+
+p.email {
+    font-size: 10px;
+}
+
+p.email {
+    font-size: 14px;
+}
+
+div.card {
+    width: 20rem; 
+    background-color: #c9d554;
+}
