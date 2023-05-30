@@ -18,3 +18,20 @@ compareToTen(8)
   .catch(error => console.log(error))
 
 
+
+// ex2
+
+const delayed = (time) => new Promise(function (resolve,reject) {
+  setTimeout(()=>resolve("we did it"),time*1000)
+
+})
+
+
+
+let promise = Promise.resolve("we decide to resolve promise by hand")
+promise.then(res=>console.log(res))
+console.log(promise)
+
+let promiseRejected = Promise.reject("we decide to reject your promis")
+promiseRejected.catch(res=>console.log(res))
+
