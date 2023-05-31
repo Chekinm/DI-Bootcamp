@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form id="currency-form" class="currency-form">
+
+        <div class="header" id="header">Currency converter</div>
+
+        <div class="lable" id="from-lable">From:</div>    
+        <select name="from" class="dropdown" id="fromcurrency" onInput="setFromLabel()">
+            <!-- drop down is filled by js -->
+            
+        </select>
+
+
+        <div class="lable" id="to-lable">To</div>
+        <select name="to" class="dropdown" id="tocurrency" onInput="setToLabel()" >
+            <!-- drop down is filled by js -->
+            
+        </select>
+
+        <div class="lable" id="amount-lable">Amount: </div>
+        <input type="number" id="amount" min="0" step="1" initial = 1 def value="100">
+        
+        <span class="currency" id="from-curr-label"></span>
+        <input type="button" value="Convert" onclick="convertCurrency()">
+    </form>
+        <div class="lable" id="to-lable">Result</div>
+
+        <input type="number" min="0" id="result">
+        <span class="currency" id="to-curr-label"></span>
+
+        <button onclick="switchCurrency()" value="Switch">Switch</button>
+
+    <script src="converter.js"></script>
+</body>
+</html>
