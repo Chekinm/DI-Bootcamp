@@ -1,0 +1,14 @@
+.card {
+    display: inline-block;
+    margin: 10px;
+    background-color: aqua;
+    border: solid 0px;
+    border-radius: 15px;
+    text-align: center;
+    width: 400px;
+
+}
+.name {
+    font-size: 2rem;
+    color: darkblue;
+}
