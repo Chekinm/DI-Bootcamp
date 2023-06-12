@@ -1,0 +1,15 @@
+.container {
+    width: 500px;
+    margin: auto;
+    margin-bottom: 3px;
+    border: solid 1px black;
+    padding: 15px 40px  ;
+    background-color: rgb(220, 231, 187);
+    display: flex;
+    font-size: 2rem;
+    justify-content: space-between;
+}
+
+#clickable {
+    color:rgb(4, 183, 4);
+}

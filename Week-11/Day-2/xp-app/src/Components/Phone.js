@@ -1,8 +1,5 @@
 import { Component } from "react";
 
-
-
-
 class Phone extends Component {
 
     constructor() {
