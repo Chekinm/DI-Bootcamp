@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: cadetblue;
+  
+}
+
+.App {
+  text-align: center;
+  padding: 10px;
+}
