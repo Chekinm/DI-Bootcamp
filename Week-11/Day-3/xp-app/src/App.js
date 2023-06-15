@@ -1,33 +1,41 @@
 import './App.css';
-import { useState } from 'react'
 import React from 'react'
+import ErrorBoundary from './components/ErrorBoundary';
+import BuggyCounter from './components/BuggyCounter';
+import Color from './components/Color';
+import ChildShow from './components/ChildShow';
+
 
 const App = () => {
-  const [name, setName] = useState('John')
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.target
-    const formData = new FormData(form)
-    const fromJson = Object.fromEntries(formData.entries())
-    console.log(fromJson)
-  }
-
   return (
     <div>
-      <form onSubmit={handleSubmit} method='POST'>
-        <label>
-          Username: <input type="text" name="name" />
-        </label>
-        <label>
-          password: <input type="text" name="password" />
-        </label>
-        <input type='submit' value='send'/>
+      <h2>Click on the numbers to increase the counters.
+      The counter is programmed to throw error when it reaches 5. This simulates a JavaScript error in a component.
+      </h2>
+      <hr/>
+      <ErrorBoundary>
+           <BuggyCounter/>
+           <BuggyCounter/>
+      </ErrorBoundary>
+      <hr/>
+      <ErrorBoundary>
+           <BuggyCounter/>
+      </ErrorBoundary>
+      <ErrorBoundary>
+           <BuggyCounter/>
+      </ErrorBoundary>
+      <hr/>
+      <BuggyCounter/>
+      <hr/>
+      <h2>Part 2. Color</h2>
+      <Color />
+      <hr/>
+      <h2>Exercise 3</h2>
+      <ChildShow  />
 
-      </form>
-     {name}
-    </div>
+    </div>    
   );
 }
 
 export default App;
+
