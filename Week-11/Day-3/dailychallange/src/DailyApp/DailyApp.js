@@ -22,7 +22,11 @@ class AppForm extends React.Component {
         const { firstName, lastName, favoriteColor, beer, wine, vodka, gender } = this.state
         // console.log(firstName, lastName, favoriteColor, beer, wine, vodka, gender);
         this.props.callBack(this.state)
-        e.target.submit()
+        
+        // we can submit data using next, but it will 
+        // reqrite all data
+
+        //e.target.submit()
     }
 
     handleChange = (e) => {
