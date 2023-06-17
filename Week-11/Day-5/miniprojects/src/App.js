@@ -9,6 +9,7 @@ function App() {
   return (
       <div style={{
         backgroundColor: bgColor,
+        transition: 'background-color 1.5s ease-in-out',
         width: '100vw',
         height: '100vh',
         padding: 0,

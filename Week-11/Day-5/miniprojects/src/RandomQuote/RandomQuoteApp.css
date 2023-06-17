@@ -15,6 +15,10 @@
     font-size: 2rem ;
     font-weight: 700;
     padding: 20px;
+    position: relative;
+    
+    transition: ease-in 1s; 
+    
 }
 
 .author {
@@ -35,3 +39,20 @@
     margin: 20px;
 
 }
+
+.fadeIn {
+    opacity: 0;
+    display: block;
+    animation: slidein 1s ease-out forwards;
+  }
+  
+  @keyframes slidein {
+    0% {
+      opacity: 0;
+      transform: translateY(-65px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }

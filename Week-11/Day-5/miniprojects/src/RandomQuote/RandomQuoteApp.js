@@ -4,7 +4,8 @@ import { useEffect } from 'react';
 import { useRef } from 'react';
 import './RandomQuoteApp.css';
 import quotes from './static/QuotesDatabase';
-import _ from 'lodash'; ;
+import _ from 'lodash'; 
+import { CSSTransition } from 'react-transition-group';
 
 
 const RandomQuoteApp = (props) => {
@@ -41,7 +42,7 @@ const RandomQuoteApp = (props) => {
         // use state manager to update quote
         setQuote({
             text: newQuote.quote,
-            author:newQuote.author,
+            author:(newQuote.author)? newQuote.author: 'unknown',
             color: `rgb(${Math.floor(Math.random()*100)},
                     ${Math.floor(Math.random()*100)},
                     ${Math.floor(Math.random()*100)})`, 
@@ -56,10 +57,12 @@ const RandomQuoteApp = (props) => {
     })
     
     return (
-        <div className='quote' style={{color:quote.color}}> 
-            <div className='text'>"{quote.text}"</div>
-            <div className='author'>- {quote.author} -</div>
-            <button className='button' onClick={changeQuote} style={{backgroundColor:quote.color}}>
+        <div className='quote' style={{color:quote.color, transition: 'background-color 1.5s ease-in-out'}}> 
+            <div  className="fadeIn" key={index.current}>
+                <div  className='text'>"{quote.text}"</div>
+                <div className='author'>- {quote.author} -</div>
+            </div>
+            <button className='button' onClick={changeQuote} style={{backgroundColor:quote.color, transition: 'background-color 1.5s ease-in-out'}}>
                 Next quote
             </button>
         </div>
