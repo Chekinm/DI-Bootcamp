@@ -7,6 +7,7 @@ class AppForm extends React.Component {
         this.state = {
             firstname : '',
             lastname : '',
+            age: '',
             color : '',
             isgo : ''
         }
@@ -14,8 +15,9 @@ class AppForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        const { firstname, lastname, color, isgo, gender } = this.state
-        console.log(firstname, lastname, color, isgo, gender);
+        const { firstname, lastname, age, color, isgo, gender } = this.state
+        console.log(firstname, lastname, age, color, isgo, gender);
+        e.target.submit()
     }
 
     handleChange = (e) => {
@@ -33,7 +35,7 @@ class AppForm extends React.Component {
         return(
             <div>
             <h1>My Form</h1>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} method='get'>
                 First name: <input 
                                 type='text' 
                                 name='firstname'
@@ -56,13 +58,29 @@ class AppForm extends React.Component {
                 </select>
                 <br/>
                 
-                Is going <input 
+                Beer <input 
                     type='checkbox' 
-                    name='isgo' 
+                    name='beer' 
+                    onChange={this.handleChange} 
+                />
+                <br/>
+
+                Wine <input 
+                    type='checkbox' 
+                    name='Wine' 
+                    onChange={this.handleChange} 
+                />
+                <br/>
+
+                Vodka <input 
+                    type='checkbox' 
+                    name='vodka' 
                     onChange={this.handleChange} 
                 />
                 <br/>
                 <input type='submit' value='Submit' />
+
+
             <div onChange={this.handleChange}>
                 <input type='radio' value='male' name='gender' />Male
                 <input type='radio' value='female' name='gender' />Female

@@ -9,12 +9,12 @@ import { Routes, Route, Link } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      {/* <AppForm /> */}
+      <AppForm />
       {/* <Home />
       <About />
       <Contact /> */}
 
-      <nav>
+      {/* <nav>
         <Link to='/'>Home</Link>
         <Link to='/about'>About</Link>
         <Link to='/Contact/'>Contact</Link>
@@ -23,7 +23,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />}/>
         <Route path='/contact/:aaa' element={<Contact />} />
-      </Routes>
+      </Routes> */}
 
     </div>
   );
