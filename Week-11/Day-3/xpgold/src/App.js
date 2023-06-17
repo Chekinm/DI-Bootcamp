@@ -1,18 +1,12 @@
 
 import './App.css';
-import ErrorBoundary from './ErrorBoundary';
-import CrashButton from './CrashButton';
+import Clock from './components/Clock.js';
  
 function App() {
+  
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <ErrorBoundary>
-          <CrashButton />
-        </ErrorBoundary>
-      </header>
-    </div>
+    <Clock />
   );
 }
 
