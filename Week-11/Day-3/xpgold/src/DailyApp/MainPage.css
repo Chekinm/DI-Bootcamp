@@ -1,0 +1,14 @@
+.form {
+    
+    padding: 5px;
+    background-color: chocolate;
+    width: 100%;
+    text-align: left;
+}
+
+.answers {
+    padding: 5px;
+    text-align: left;
+    background-color: darkgreen;
+    margin: 0;
+}
