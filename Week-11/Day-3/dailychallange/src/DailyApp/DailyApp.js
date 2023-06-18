@@ -24,7 +24,7 @@ class AppForm extends React.Component {
         this.props.callBack(this.state)
         
         // we can submit data using next, but it will 
-        // reqrite all data
+        // deletet all data
 
         //e.target.submit()
     }
