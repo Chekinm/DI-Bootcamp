@@ -1,0 +1,31 @@
+.todo {
+    text-decoration: none;
+  }
+
+ul {
+  direction: none;
+  list-style-position: inside
+}
+
+li {
+  width: 100%;
+  align-items: center;
+}
+
+li:hover {
+  
+    text-decoration: line-through;
+  }
+
+.input {
+  background-color: rgb(188, 188, 188);
+  padding: 8px;
+  border-radius: 10px;
+
+}
+
+.button {
+  margin-left:5px;
+  padding: 8px;
+  border-radius: 10px;
+}
