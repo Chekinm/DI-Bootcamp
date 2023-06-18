@@ -1,6 +1,12 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import img1 from './img/honkong.jpg';
+import img2 from './img/japan.webp';
+import img3 from './img/lasvegas.webp';
+import img4 from './img/macao.webp';
+
+
 
 let styles = {
     margin: 'auto',
@@ -12,19 +18,19 @@ function App() {
 	<div style={styles}>
 		<Carousel>
 			<div style={styles}>
-				<img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_65/c_fill,w_480,h_384/cities/jrfyzvgzvhs1iylduuhj.jpg" alt="Hong Kong" />
+				<img src={img1} alt='honkong' /> 
 				<p className="legend">Hong Kong</p>
 			</div>
 			<div>
-				<img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_65/c_fill,w_480,h_384/cities/c1cklkyp6ms02tougufx.webp" alt="Singapore"/>
+				<img src={img2} alt="Singapore"/>
 				<p className="legend">Macao</p>
 			</div>
 			<div>
-				<img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_65/c_fill,w_480,h_384/cities/e8fnw35p6zgusq218foj.webp" alt="Japan"/>
+				<img src={img3} alt="Japan"/>
 				<p className="legend">Japan</p>
 			</div>
 			<div>
-				<img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_65/c_fill,w_480,h_384/cities/liw377az16sxmp9a6ylg.webp" alt="Las Vegas"/>
+				<img src={img4} alt="Las Vegas"/>
 				<p className="legend">Las Vegas</p>
 			</div>
 		</Carousel>
