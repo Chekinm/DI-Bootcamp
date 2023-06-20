@@ -23,10 +23,12 @@ export const reducerList = (state=initState, action={}) => {
       return {...state, transactionDetails:action.payload}
 
     case UPDATE:
-      console.log('updating=>', action.payload);
+      console.log('updating=>', action.payload, action.currentItem);
       return {...state, transactionList: state.transactionList.map((item) => {
-        return item.id === action.payload.id ?  action.payload : item
-      })}
+                                  return item.id === action.payload.id ?  action.payload : item
+                                   }),
+                        transactionDetails:action.currentItem
+        }
 
     case CREATE:
       console.log('creating=>', action.payload);
