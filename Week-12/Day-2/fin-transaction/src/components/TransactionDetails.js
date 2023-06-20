@@ -25,9 +25,14 @@ const TransactionDetails = () => {
   // this will handle incoming changes in redux state and 
   // update local state correspondingly
   useEffect(() => {
-    setLocalDetails(details)
-    const isNew = details.id === undefined
-    setButton(isNew? 'Create': 'Update')
+    if (!details.length) {
+      
+        const isNew = details.id === undefined
+   
+        setLocalDetails(details)
+        setButton(isNew? 'Create': 'Update')
+    }
+    
   }, [details])
   
   // this function transfer local state to redux state on click
@@ -47,11 +52,15 @@ const TransactionDetails = () => {
             //update counter for next transaction
             currentNumber: currentNumber + 1,
             // clear current item
-            currentItem:{}
+            currentItem: {
+                        accountNumber:'',
+                        FSC:'',
+                        accHolderName:'',
+                        amount:''}
           })
         
         //clear form input
-        setLocalDetails({id:'',
+        setLocalDetails({
                         accountNumber:'',
                         FSC:'',
                         accHolderName:'',
@@ -80,7 +89,7 @@ const TransactionDetails = () => {
           <td>Account number:</td>
           <td><input name='accountNumber'
                     type='text' 
-                     placeholder={localDetails.accountNumber}
+                    //  placeholder={localDetails.accountNumber}
                      value={localDetails.accountNumber}
                      onChange={handelInputChange}>
           </input></td>
@@ -90,7 +99,7 @@ const TransactionDetails = () => {
           <td>FSC</td>
           <td><input name='FSC'
                       type='text' 
-                      placeholder={localDetails.FSC}
+                      // placeholder={localDetails.FSC}
                       value={localDetails.FSC}
                       onChange={handelInputChange}>
                       </input></td>
@@ -100,7 +109,7 @@ const TransactionDetails = () => {
           <td>Account holder name: </td>
           <td> <input name='accHolderName'
                       type='text' 
-                      placeholder={localDetails.accHolderName}
+                      // placeholder={localDetails.accHolderName}
                       value={localDetails.accHolderName}
                       onChange={handelInputChange}>
                     </input></td>
@@ -110,7 +119,7 @@ const TransactionDetails = () => {
           <td>Amount:</td> 
           <td><input  name='amount'
                       type='text' 
-                      placeholder={localDetails.amount}
+                      // placeholder={localDetails.amount}
                       value={localDetails.amount}
                       onChange={handelInputChange}>
               </input></td>

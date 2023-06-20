@@ -1,13 +1,21 @@
+import { addToLocalStorage, getFromLocalStorage } from "../utils/storage";
+
 export const DETAIL = 'DETAIL';
 export const UPDATE = 'UPDATE';
 export const CREATE = 'CREATE';
 export const DELETE = 'DELETE';
+export const LOCAL_STORAGE_TRANSACTION_KEY = 'LOCAL_STORAGE_TRANSACTION_KEY'
 
 const initState = {
   currentNumber: 1,
-  transactionList: [],
-  transactionDetails: {}
+  transactionList: getFromLocalStorage(LOCAL_STORAGE_TRANSACTION_KEY),
+  transactionDetails: {
+                        accountNumber:'',
+                        FSC:'',
+                        accHolderName:'',
+                        amount:''}
 }
+console.log('ssss', initState.transactionList)
 
 export const reducer_detail = (state=initState, action={}) => {
   
@@ -24,6 +32,9 @@ export const reducerList = (state=initState, action={}) => {
 
     case UPDATE:
       console.log('updating=>', action.payload, action.currentItem);
+      addToLocalStorage(LOCAL_STORAGE_TRANSACTION_KEY, state.transactionList.map((item) => {
+                                           return item.id === action.payload.id ?  action.payload : item
+                                        }))
       return {...state, transactionList: state.transactionList.map((item) => {
                                   return item.id === action.payload.id ?  action.payload : item
                                    }),
@@ -32,6 +43,7 @@ export const reducerList = (state=initState, action={}) => {
 
     case CREATE:
       console.log('creating=>', action.payload);
+      addToLocalStorage(LOCAL_STORAGE_TRANSACTION_KEY, [...state.transactionList, action.payload] )
       return {...state, transactionList: [...state.transactionList, action.payload], currentNumber: action.currentNumber} 
     
     case DELETE:
