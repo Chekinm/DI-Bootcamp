@@ -1,0 +1,17 @@
+5 day details false
+
+GET /forecasts/v1/daily/5day/215854?apikey=gKM59NafWCo6iGhf6ReRg4fgYWbCLaZo&language=en-us&details=false&metric=true HTTP/1.1
+
+
+5 days detailed
+GET /forecasts/v1/daily/5day/215854?apikey=gKM59NafWCo6iGhf6ReRg4fgYWbCLaZo&language=en-us&details=true&metric=true HTTP/1.1
+
+
+autocomplete
+
+http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=gKM59NafWCo6iGhf6ReRg4fgYWbCLaZo&q=tel&language=en-us
+
+
+oneDay
+
+GET /currentconditions/v1/215854?apikey=gKM59NafWCo6iGhf6ReRg4fgYWbCLaZo&language=en-us&details=true HTTP/1.1

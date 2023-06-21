@@ -20,7 +20,7 @@
   color: #61dafb;
 }
 
-table, td, tr {
+table, tbody, td, tr {
   border: 1px solid white;
 }
 td{
