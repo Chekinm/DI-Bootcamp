@@ -6,7 +6,7 @@ const Weather = () => {
         <div>
         <SearchCity />
         <HandleFavoritesList />
-        {/* <DatailedWeatherFOrecast /> */}
+        <DatailedWeatherForecast />
         </div>
 
     )
