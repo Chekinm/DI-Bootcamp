@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Binary Tree Visualization</title>
+  <style>
+    svg {
+      background-color: #f0f0f0;
+    }
+    circle {
+      fill: #fff;
+      stroke: #000;
+      stroke-width: 2px;
+    }
+    line {
+      stroke: #000;
+      stroke-width: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div id="tree-container"></div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script>
+function animate() {
+  return new Promise(resolve => {
+    // Animation logic
+    console.log("Animation started");
+    setTimeout(() => {
+      console.log("Animation ended");
+      resolve();
+    }, 2000);
+  });
+}
+
+async function runAnimations() {
+  // First animation
+  await animate();
+
+  // Second animation after the first animation ends
+  await animate();
+
+  // Both animations completed
+  console.log("Both animations completed");
+}
+
+// Run the animations
+runAnimations();
+  </script>
+</body>
+</html>

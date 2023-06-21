@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Binary Tree Visualization</title>
+  <style>
+    svg {
+      background-color: #f9f9f9;
+    }
+    .number-container {
+      fill: #ffffff;
+      stroke: #999999;
+      stroke-width: 1px;
+    }
+    .link {
+      fill: none;
+      stroke: #cccccc;
+      stroke-width: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div id="canvas">
+    <div id="tree-container"></div>
+    <div id="controls">
+        <button onclick="addNode(event)">Add element</button>
+        <button onclick="removeRoot(event)">Pop minimum</button>
+        <button onclick="createHeapFromArray(event)">Create new heap</button>
+    </div>
+  </div>
+
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script type="text/javascript" src="heap.js" defer></script>
+</body>
+</html>
