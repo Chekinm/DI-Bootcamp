@@ -24,7 +24,7 @@ const API_KEY = process.env.ACCUWEATHER_APP_API_KEY;
 app.get('/api/*', async (req, res) => {
   
   const {path} = req;
-  
+  console.log('simpol', path)
   
   if (path.includes('5day')) {
       
@@ -35,6 +35,7 @@ app.get('/api/*', async (req, res) => {
     res.json(autocomplete)
 
   } else if (path.includes('currentconditions')) {
+    console.log('current cond', path)
 
     res.json(oneDay)
     

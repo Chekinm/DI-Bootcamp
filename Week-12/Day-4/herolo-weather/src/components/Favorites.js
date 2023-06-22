@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { SET_CITY } from '../redux/reducer';
 import { Routes, Route, Link } from 'react-router-dom';
 import Weather from './Weather';
+import OneDayCityCard from './OneDayCityCard';
 
 
 
@@ -25,6 +26,7 @@ const Faivorites = () => {
 
             <Routes >
             <Route path='/Weather/' element={<Weather />}/>
+            
             </Routes>
                    {/* <h1>{String(error)}, {String(isLoading)}</h1>
                 {error && <p>{error}</p>}
@@ -35,7 +37,7 @@ const Faivorites = () => {
                             name={item.id}
                             key={item.id}
                             onClick={showDetailed}>
-                            <Link to='/Weather/' id={item.id}>{item.name}</Link>
+                            <Link to='/Weather/' id={item.id}><OneDayCityCard city={{id:item.id, name: item.name}}/></Link>
                         </div>
                     ))}
                 </div>
