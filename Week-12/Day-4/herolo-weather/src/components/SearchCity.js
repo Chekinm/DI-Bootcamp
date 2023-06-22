@@ -1,5 +1,5 @@
 import {useSelector, useDispatch} from 'react-redux';
-import {SET_CITY, DEFAULT_CITY}  from '../redux/reducer' 
+import {SET_CITY, DEFAULT_CITY_ID, DEFAULT_CITY_NAME}  from '../redux/reducer' 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -7,7 +7,8 @@ const SearchCity = () => {
     
     const [searchList, setSearchList] = useState([])
     const [query, setQuery] = useState('')
-    const [cityId, setCityId] = useState(DEFAULT_CITY)
+    const [cityId, setCityId] = useState(DEFAULT_CITY_ID)
+    const [cityName, setCityName] = useState(DEFAULT_CITY_NAME)
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
     const PROXY_PORT = process.env.REACT_APP_BACKEND_SERVER_PORT
@@ -15,7 +16,7 @@ const SearchCity = () => {
 
     // connect  redux state 
     const dispatch = useDispatch()
-    const currentCityId = useSelector(state => state.currentCity) 
+    const currentCityId = useSelector(state => state.currentCity.id) 
     useEffect(() => {
         //monitor cityId change from another part of app
         setCityId(currentCityId)
@@ -39,21 +40,19 @@ const SearchCity = () => {
     }
 
     const onItemSelection = (e) => {
-        console.log(e.target)
+        
         const id = e.target.id
         const city = e.target.innerText
-        console.log(id, city)
-        setQuery(city)
-        setCityId(id)
+        setQuery(city); 
+        dispatch({type:SET_CITY, payload: {id:id, name: city}}) 
         setSearchList([]);
 
     }
 
 
     const setCityGlobal = (e) => {
-        e.preventDefault()    
-        dispatch({type:SET_CITY, payload: cityId})
-        return  
+        e.preventDefault() 
+        dispatch({type:SET_CITY, payload: {id:cityId, name: cityName}}) 
     } 
 
     return  (

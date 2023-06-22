@@ -1,12 +1,13 @@
 import SearchCity from "./SearchCity"
 import HandleFavoritesList from "./HandleFavoritesList"
+import DetailedWeatherForecast from "./DetailedWeatherForecast"
 
 const Weather = () => {
     return  (
         <div>
         <SearchCity />
         <HandleFavoritesList />
-        <DatailedWeatherForecast />
+        <DetailedWeatherForecast />
         </div>
 
     )
