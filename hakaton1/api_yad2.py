@@ -8,7 +8,7 @@ async def get_yad2_data(request_params) -> dict:
     we need a link a number of room and photos urls list for a POC prototype
     """
     
-    # some parameters a still hardcoded, need testing which on eshould be tuned by users
+    # some parameters are still hardcoded, need testing which one should be tuned by users
  
     payload = { 
             'cat' : "2",
