@@ -10,7 +10,7 @@ const DetailedWeatherForecast = () => {
     const currentCityName = useSelector(state => state.currentCity.name) 
     
     const[cityId, setCityId] = useState(currentCityId)
-    
+    const[forecast, setForecast] = useState({})
 
     useEffect(() => {
         setCityId(currentCityId)

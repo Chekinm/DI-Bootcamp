@@ -16,12 +16,13 @@ const OneDayCityCard = (props) => {
 
     
 
-    useEffect(()=>{
+    useEffect(async() => {
      
         let url= 'http://localhost:5000/api/cities/currentconditions?q=tel&language=en-us'
-        axios.get(url)
-            `http://localhost:${PROXY_PORT}/currentconditions/v1/${props.city.id}`,
-                    {language: 'en-us', details:'true'})
+        async fetchData() {
+        await axios.get(url)
+            // `http://localhost:${PROXY_PORT}/currentconditions/v1/${props.city.id}`,
+            //         {language: 'en-us', details:'true'})
                 .then((response) => {
                 setTemperature(response.data[0].Temperature.Metric.Value);
                 setSky(response.data[0].WeatherText)
@@ -31,7 +32,11 @@ const OneDayCityCard = (props) => {
                 setError("An error occured. Please try again.");
                 setIsLoading(false);
                 })
-            },[])
+            }
+        fetchData()
+        }
+
+        ,[])
 
 
 
