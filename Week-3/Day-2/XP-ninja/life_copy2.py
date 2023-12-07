@@ -35,7 +35,7 @@ class Cell():
         return True
     
     def __hash__(self) -> int:
-        return hash((self.x,self.y))
+        return hash((self.x, self.y))
         
 
 class Map_state (dict):
