@@ -5,19 +5,15 @@ function rnd() {
 function rndColor(event) {
     //leftclick
     let div = event.target
-    div.style.background = 'rgb(' + rnd() + ',' + rnd() + ',' + rnd() + ')';
-
-
-
+    div.style.background = `rgb(${rnd()},${rnd()},${rnd()})` 
 
 }
 
 function colorYellow(event) {
     //rightclick
     event.preventDefault()
-    let div = event.target
-
-    div.style.background = "yellow"
+    event.target.style.background = "yellow"
+    
 }
 
 
@@ -39,5 +35,12 @@ function makeSmall (event) {
     div.style.left="175px"
     div.style.top="175px"
 }
+
+const movingbox = document.getElementById("movingbox");
+
+movingbox.addEventListener("click", rndColor);
+movingbox.addEventListener("contextmenu", colorYellow);
+movingbox.addEventListener("mouseover", makeBig);
+movingbox.addEventListener("mouseout", makeSmall);
 
   

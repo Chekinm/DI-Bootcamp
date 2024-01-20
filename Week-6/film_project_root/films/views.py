@@ -20,10 +20,10 @@ def homepage(request):
 
 
 class AddFilm(generic.CreateView):
-    template_name='films/manage_record.html'
-    model=Film
-    form_class=FilmForm
-    success_url=reverse_lazy('homepage')
+    template_name = 'films/manage_record.html'
+    model = Film
+    form_class = FilmForm
+    success_url = reverse_lazy('homepage')
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
         context['record'] = "Film"

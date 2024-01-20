@@ -12,27 +12,27 @@ const OneDayCityCard = (props) => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
 
-    //const PROXY_PORT = process.env.REACT_APP_BACKEND_SERVER_PORT
+    const PROXY_PORT = process.env.REACT_APP_BACKEND_SERVER_PORT
 
     
 
-    useEffect(async() => {
+    useEffect(() => {
      
-        let url= 'http://localhost:5000/api/cities/currentconditions?q=tel&language=en-us'
-        async fetchData() {
-        await axios.get(url)
-            // `http://localhost:${PROXY_PORT}/currentconditions/v1/${props.city.id}`,
-            //         {language: 'en-us', details:'true'})
-                .then((response) => {
-                setTemperature(response.data[0].Temperature.Metric.Value);
-                setSky(response.data[0].WeatherText)
-                setIsLoading(false);
-                setError("");
-                }).catch(() => {
-                setError("An error occured. Please try again.");
-                setIsLoading(false);
-                })
-            }
+        // let url= 'http://localhost:5000/api/cities/currentconditions?q=tel&language=en-us'
+        
+        async function fetchData() {
+            await axios.get(`http://localhost:${PROXY_PORT}/currentconditions/v1/${props.city.id}`,
+                         {language: 'en-us', details:'true'})
+                    .then((response) => {
+                    setTemperature(response.data[0].Temperature.Metric.Value);
+                    setSky(response.data[0].WeatherText)
+                    setIsLoading(false);
+                    setError("");
+                    }).catch(() => {
+                    setError("An error occured. Please try again.");
+                    setIsLoading(false);
+                    })
+                }
         fetchData()
         }
 
